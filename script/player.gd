@@ -25,8 +25,12 @@ func _physics_process(_delta: float) -> void:
 		sprite.flip_h = true
 		jaring_kanan.disabled = true
 		jaring_kiri.disabled = false
-	else: # Diam / gerak atas-bawah
-		jaring_kanan.disabled = true
-		jaring_kiri.disabled = true
+	#else: # Diam / gerak atas-bawah
+		#jaring_kanan.disabled = true
+		#jaring_kiri.disabled = true
 
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

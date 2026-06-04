@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://camy2jk6iahci"]
 
 [ext_resource type="PackedScene" uid="uid://c72diyxp8dws4" path="res://scene/player.tscn" id="1_5kiuu"]
+[ext_resource type="Script" uid="uid://b7vtgnyu1idf6" path="res://script/game.gd" id="1_xwcet"]
 [ext_resource type="PackedScene" uid="uid://cegjon2kvn4sb" path="res://scene/world.tscn" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://c68twrc5gy1g8" path="res://scene/ikan.tscn" id="3_33cqm"]
+[ext_resource type="PackedScene" uid="uid://daps3mh3s4gek" path="res://scene/sapu_sapu.tscn" id="3_qpk70"]
+[ext_resource type="Texture2D" uid="uid://ddktfaqjeipeh" path="res://asset/hati.jpeg" id="5_p1ry8"]
+[ext_resource type="Script" uid="uid://cbcp2kut1xfpk" path="res://script/ui.gd" id="5_xlg7c"]
 
 [node name="Game" type="Node2D" unique_id=1041822859]
 scale = Vector2(0.6247545, 0.6232934)
+script = ExtResource("1_xwcet")
+ikan_scene = ExtResource("3_33cqm")
+sapu_sapu_scene = ExtResource("3_qpk70")
 
 [node name="Player" parent="." unique_id=952140070 instance=ExtResource("1_5kiuu")]
 z_index = 5
@@ -16,18 +23,57 @@ position = Vector2(-347.33646, -176.48192)
 scale = Vector2(1.5975332, 1.6036268)
 
 [node name="Ikan" parent="." unique_id=854384470 instance=ExtResource("3_33cqm")]
-position = Vector2(198.47797, 264.7228)
+position = Vector2(299.31757, 720.36694)
 rotation = 1.567801
 scale = Vector2(0.3679266, 0.3735085)
-adalah_sapu_sapu = true
 
-[node name="Ikan2" parent="." unique_id=515196837 instance=ExtResource("3_33cqm")]
-position = Vector2(273.70752, 685.0706)
-adalah_sapu_sapu = true
+[node name="Ikan2" parent="." unique_id=323085991 instance=ExtResource("3_33cqm")]
+position = Vector2(889.9496, 598.4341)
+rotation = 1.567801
+scale = Vector2(0.3679266, 0.3735085)
 
-[node name="Ikan3" parent="." unique_id=512142185 instance=ExtResource("3_33cqm")]
-position = Vector2(1208.4747, 624.1041)
-rotation = -0.04970829
+[node name="Ikan3" parent="." unique_id=1811026928 instance=ExtResource("3_33cqm")]
+position = Vector2(204.88043, 381.83514)
+rotation = 1.567801
+scale = Vector2(0.3679266, 0.3735085)
 
-[node name="Ikan4" parent="." unique_id=373885972 instance=ExtResource("3_33cqm")]
-position = Vector2(871, 117)
+[node name="Timer" type="Timer" parent="." unique_id=1032016073]
+wait_time = 2.0
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=593249519]
+script = ExtResource("5_xlg7c")
+
+[node name="PoinLabel" type="Label" parent="UI" unique_id=559215427]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 83.0
+offset_bottom = 43.0
+scale = Vector2(1.5762873, 1.2396038)
+text = "Point : 0"
+
+[node name="Hati1" type="TextureRect" parent="UI" unique_id=2071872546]
+offset_left = 804.0
+offset_top = 37.999992
+offset_right = 1029.0
+offset_bottom = 263.0
+scale = Vector2(0.11696994, 0.12940969)
+texture = ExtResource("5_p1ry8")
+
+[node name="Hati2" type="TextureRect" parent="UI" unique_id=1382022387]
+offset_left = 847.00006
+offset_top = 28.0
+offset_right = 1072.0
+offset_bottom = 253.0
+scale = Vector2(0.17573284, 0.19098508)
+texture = ExtResource("5_p1ry8")
+
+[node name="Hati3" type="TextureRect" parent="UI" unique_id=1970191767]
+offset_left = 753.0
+offset_top = 31.999992
+offset_right = 978.0
+offset_bottom = 257.0
+scale = Vector2(0.18006131, 0.18542334)
+texture = ExtResource("5_p1ry8")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

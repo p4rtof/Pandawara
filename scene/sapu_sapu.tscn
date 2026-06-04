@@ -1,24 +1,22 @@
-[gd_scene format=3 uid="uid://c68twrc5gy1g8"]
+[gd_scene format=3 uid="uid://daps3mh3s4gek"]
 
-[ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_26uxn"]
-[ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/ikan_nn.png" id="3_c4xmv"]
+[ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_ncybc"]
+[ext_resource type="Texture2D" uid="uid://c5rfc06p8qrg0" path="res://asset/sapu_sapu.png" id="2_vm3ti"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 42.869667
 height = 262.02136
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
-position = Vector2(-1, 1)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.4976186)
 collision_mask = 3
-script = ExtResource("1_26uxn")
-texture_ikan = ExtResource("3_c4xmv")
+script = ExtResource("1_ncybc")
+adalah_sapu_sapu = true
+texture_ikan = ExtResource("2_vm3ti")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
-position = Vector2(-18, 18.086142)
-scale = Vector2(0.25662366, 0.26306888)
-texture = ExtResource("3_c4xmv")
+texture = ExtResource("2_vm3ti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
 position = Vector2(-24.999998, 4.000002)

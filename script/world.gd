@@ -1,7 +1,7 @@
 extends Node2D
 
 # Tinggi tiap bioma (sesuaikan tinggi gambarmu)
-const TINGGI_BIOMA = 1080
+const TINGGI_BIOMA = 1024
 
 @onready var bioma_list = [$BiomaBersih]
 
