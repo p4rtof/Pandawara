@@ -8,7 +8,6 @@ radius = 42.869667
 height = 262.02136
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
-position = Vector2(-1, 1)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.4976186)
 collision_mask = 3

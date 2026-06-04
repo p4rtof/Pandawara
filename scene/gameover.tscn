@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cs3w1x16iep8i"]
+
+[ext_resource type="Script" uid="uid://b2dkecxiutmma" path="res://script/gameover.gd" id="1_roxl8"]
+
+[node name="GameOver" type="Control" unique_id=87753523]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_roxl8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=148950937]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.14117648)
+
+[node name="Label" type="Label" parent="." unique_id=567677853]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 181.0
+offset_right = 734.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 72
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1376574190]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 285.0
+offset_right = 630.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 50
+text = "Skor : 0"
+
+[node name="RestartButton" type="Button" parent="." unique_id=204318105]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 378.0
+offset_right = 643.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 42
+text = "Main Lagi"

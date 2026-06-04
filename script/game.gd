@@ -5,7 +5,7 @@ extends Node2D
 var batas_ikan = 10
 
 func _ready():
-	$Timer.wait_time = 2.0
+	$Timer.wait_time = 1.0
 	$Timer.autostart = true
 	$Timer.start()
 
@@ -14,16 +14,16 @@ func _on_timer_timeout():
 	if ikan_sekarang.size() >= batas_ikan:
 		return
 	
-	# 30% chance spawn sapu-sapu, 70% ikan biasa
 	var ikan_baru
-	var angka_random = randf()
-	if angka_random < 0.7:
+	if randf() < 0.3:
 		ikan_baru = sapu_sapu_scene.instantiate()
 	else:
 		ikan_baru = ikan_scene.instantiate()
 	
 	add_child(ikan_baru)
+	
+	# Spawn dari ATAS layar, x random di area air
 	ikan_baru.position = Vector2(
-		randf_range(-400, 400),
-		randf_range(-200, 200)
+		randf_range(-200, 200),  # random kiri-kanan di area air
+		-350                      # selalu dari atas
 	)

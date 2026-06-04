@@ -10,11 +10,14 @@ script = ExtResource("1_m5mgf")
 
 [node name="BiomaBersih" type="Node2D" parent="." unique_id=1956570220]
 
-[node name="Sprite2D" type="Sprite2D" parent="BiomaBersih" unique_id=2109962355]
-position = Vector2(0.9999924, 0)
-scale = Vector2(0.75255626, 0.64179677)
+[node name="TextureRect" type="TextureRect" parent="BiomaBersih" unique_id=1730715696]
+offset_left = 2.999939
+offset_top = -1914.9999
+offset_right = 1539.0
+offset_bottom = 2085.0
+scale = Vector2(0.75283027, 0.64404905)
 texture = ExtResource("2_m5mgf")
-centered = false
+stretch_mode = 1
 
 [node name="BiomaTengah" type="Node2D" parent="." unique_id=2077019799]
 visible = false
