@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://3ctb4rgyea3s"]
+
+[ext_resource type="Script" uid="uid://8t5yg1cjmyh0" path="res://script/story.gd" id="1_6neeb"]
+
+[node name="Story" type="Control" unique_id=238379891]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6neeb")
+
+[node name="Background" type="TextureRect" parent="." unique_id=520381222]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=683939302]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NamaLabel" type="Label" parent="DialogBox" unique_id=96108972]
+layout_mode = 2
+
+[node name="TeksLabel" type="Label" parent="DialogBox" unique_id=715560545]
+layout_mode = 2
+
+[node name="LanjurButton" type="Button" parent="." unique_id=54221740]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

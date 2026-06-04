@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cegjon2kvn4sb"]
+
+[ext_resource type="Script" uid="uid://8ic8oabatemk" path="res://script/world.gd" id="1_m5mgf"]
+[ext_resource type="Texture2D" uid="uid://ck4hohefrj8kp" path="res://asset/bg_sungai.jpg" id="2_m5mgf"]
+[ext_resource type="Texture2D" uid="uid://burrx6n2sl327" path="res://asset/bg_pantai.png" id="3_emkrx"]
+[ext_resource type="Texture2D" uid="uid://dappnxtskyq78" path="res://asset/bg_malam.jpg" id="4_0tg4p"]
+
+[node name="World" type="Node2D" unique_id=601733204]
+script = ExtResource("1_m5mgf")
+
+[node name="BiomaBersih" type="Node2D" parent="." unique_id=1956570220]
+
+[node name="Sprite2D" type="Sprite2D" parent="BiomaBersih" unique_id=2109962355]
+scale = Vector2(1.600675, 1.58888)
+texture = ExtResource("2_m5mgf")
+centered = false
+
+[node name="BiomaTengah" type="Node2D" parent="." unique_id=2077019799]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BiomaTengah" unique_id=1932653140]
+visible = false
+texture = ExtResource("3_emkrx")
+centered = false
+
+[node name="BiomaBawah" type="Node2D" parent="." unique_id=1965316145]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BiomaBawah" unique_id=645954302]
+visible = false
+texture = ExtResource("4_0tg4p")
+centered = false
