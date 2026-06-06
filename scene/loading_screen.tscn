@@ -1,0 +1,211 @@
+[gd_scene load_steps=12 format=3 uid="uid://loading_screen_main"]
+
+; ============================================================
+;  loading_screen.tscn — Mas Arief: Ekspedisi Ciliwung
+;  Godot 4  |  Resolution: 1920×1080  |  Anchors: full rect
+; ============================================================
+
+[ext_resource type="Script"        path="res://scenes/loading/loading_screen.gd"        id="1"]
+[ext_resource type="Texture2D"     path="res://assets/images/background.png"            id="2"]
+[ext_resource type="Texture2D"     path="res://assets/images/logo.png"                  id="3"]
+[ext_resource type="AudioStream"   path="res://assets/audio/river_night_ambience.ogg"   id="6"]
+[ext_resource type="Shader"        path="res://shaders/water_bar.gdshader"              id="7"]
+[ext_resource type="Shader"        path="res://shaders/fog_overlay.gdshader"            id="8"]
+[ext_resource type="Shader"        path="res://shaders/chromatic_aberration.gdshader"   id="9"]
+
+; ── Shader materials ─────────────────────────────────────────
+[sub_resource type="ShaderMaterial" id="ShaderMat_WaterBar"]
+shader = ExtResource("7")
+shader_parameter/glow_intensity  = 0.5
+shader_parameter/scroll_speed    = 0.35
+shader_parameter/ripple_strength = 0.018
+shader_parameter/ripple_frequency = 18.0
+shader_parameter/water_color_a   = Color(0.176, 0.714, 0.769, 1)
+shader_parameter/water_color_b   = Color(0.471, 0.941, 1.0, 1)
+shader_parameter/glow_color      = Color(0.471, 0.941, 1.0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMat_Fog"]
+shader = ExtResource("8")
+shader_parameter/fog_speed    = 0.04
+shader_parameter/fog_density  = 0.28
+shader_parameter/fog_scale    = 3.5
+shader_parameter/fog_color    = Color(0.55, 0.82, 0.88, 1)
+shader_parameter/vertical_bias = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMat_Chromatic"]
+shader = ExtResource("9")
+shader_parameter/strength    = 0.003
+shader_parameter/pulse_speed = 0.4
+
+; ── Fireflies particle material ───────────────────────────────
+[sub_resource type="ParticleProcessMaterial" id="FirefliesMat"]
+emission_shape          = 3                    ; Box
+emission_box_extents    = Vector3(960, 540, 0)
+direction               = Vector3(0, 0, 0)
+spread                  = 180.0
+gravity                 = Vector3(0, 0, 0)
+initial_velocity_min    = 5.0
+initial_velocity_max    = 18.0
+angular_velocity_min    = -20.0
+angular_velocity_max    = 20.0
+scale_min               = 0.08
+scale_max               = 0.22
+color                   = Color(1.0, 0.95, 0.5, 0.85)
+color_ramp              = null
+
+; ── Fog particle material ─────────────────────────────────────
+; NOTE: Fog is handled by the shader ColorRect; GPUParticles2D
+;       below is optional supplemental mist near the waterline.
+[sub_resource type="ParticleProcessMaterial" id="FogMat"]
+emission_shape          = 3
+emission_box_extents    = Vector3(960, 60, 0)
+direction               = Vector3(1, 0, 0)
+spread                  = 15.0
+gravity                 = Vector3(0, -2, 0)
+initial_velocity_min    = 8.0
+initial_velocity_max    = 22.0
+scale_min               = 2.5
+scale_max               = 5.0
+color                   = Color(0.55, 0.82, 0.88, 0.12)
+
+; ─────────────────────────────────────────────────────────────
+;  SCENE TREE
+; ─────────────────────────────────────────────────────────────
+[node name="LoadingScreen" type="Control"]
+layout_mode             = 3
+anchors_preset          = 15              ; Full rect
+anchor_right            = 1.0
+anchor_bottom           = 1.0
+script                  = ExtResource("1")
+
+; ── Background ───────────────────────────────────────────────
+[node name="Background" type="TextureRect" parent="."]
+layout_mode             = 1
+anchors_preset          = 15
+expand_mode             = 3               ; IgnoreSize → fill
+stretch_mode            = 6              ; Keep aspect covered
+texture                 = ExtResource("2")
+pivot_offset            = Vector2(960, 540)
+
+; ── Fog shader overlay ───────────────────────────────────────
+[node name="FogOverlay" type="ColorRect" parent="."]
+layout_mode             = 1
+anchors_preset          = 15
+color                   = Color(0, 0, 0, 0)
+material                = SubResource("ShaderMat_Fog")
+
+; ── Fireflies ────────────────────────────────────────────────
+[node name="Fireflies" type="GPUParticles2D" parent="."]
+position                = Vector2(960, 540)
+amount                  = 55
+lifetime                = 6.0
+preprocess              = 3.0
+speed_scale             = 0.6
+fixed_fps               = 0
+emitting                = false
+process_material        = SubResource("FirefliesMat")
+texture                 = null            ; Generated via _generate_textures() in script
+
+; ── Fog mist particles ───────────────────────────────────────
+[node name="FogParticles" type="GPUParticles2D" parent="."]
+position                = Vector2(960, 800)
+amount                  = 20
+lifetime                = 9.0
+preprocess              = 5.0
+speed_scale             = 0.4
+emitting                = false
+process_material        = SubResource("FogMat")
+
+; ── Logo ─────────────────────────────────────────────────────
+[node name="Logo" type="TextureRect" parent="."]
+visible                 = false
+layout_mode             = 1
+anchors_preset          = 8               ; Centre
+anchor_left             = 0.5
+anchor_top              = 0.5
+anchor_right            = 0.5
+anchor_bottom           = 0.5
+offset_left             = -220.0
+offset_top              = -160.0
+offset_right            = 220.0
+offset_bottom           = 160.0
+texture                 = ExtResource("3")
+stretch_mode            = 5               ; Keep aspect centred
+
+; ── Loading bar ──────────────────────────────────────────────
+[node name="LoadingBar" type="TextureProgressBar" parent="."]
+visible                 = false
+layout_mode             = 1
+anchor_left             = 0.5
+anchor_top              = 1.0
+anchor_right            = 0.5
+anchor_bottom           = 1.0
+offset_left             = -400.0
+offset_top              = -80.0
+offset_right            = 400.0
+offset_bottom           = -48.0
+min_value               = 0.0
+max_value               = 100.0
+value                   = 0.0
+; texture_under / texture_progress / firefly texture → generated via _generate_textures() in script
+fill_mode               = 0               ; Left to right
+material                = SubResource("ShaderMat_WaterBar")
+
+; ── Loading text ─────────────────────────────────────────────
+[node name="LoadingText" type="Label" parent="."]
+visible                 = false
+layout_mode             = 1
+anchor_left             = 0.5
+anchor_top              = 1.0
+anchor_right            = 0.5
+anchor_bottom           = 1.0
+offset_left             = -400.0
+offset_top              = -110.0
+offset_right            = 400.0
+offset_bottom           = -90.0
+horizontal_alignment    = 1               ; Centre
+text                    = "Menyiapkan ekspedisi..."
+theme_override_colors/font_color = Color(0.471, 0.941, 1.0, 1)
+theme_override_font_sizes/font_size = 18
+
+; ── Tips label ───────────────────────────────────────────────
+[node name="TipsLabel" type="Label" parent="."]
+visible                 = false
+layout_mode             = 1
+anchor_left             = 0.5
+anchor_top              = 1.0
+anchor_right            = 0.5
+anchor_bottom           = 1.0
+offset_left             = -500.0
+offset_top              = -36.0
+offset_right            = 500.0
+offset_bottom           = -14.0
+horizontal_alignment    = 1
+text                    = "💡 Ikan sapu-sapu lebih aktif di area tercemar."
+theme_override_colors/font_color = Color(0.85, 0.95, 0.85, 0.75)
+theme_override_font_sizes/font_size = 14
+
+; ── Chromatic aberration overlay ──────────────────────────────
+[node name="ChromaticOverlay" type="ColorRect" parent="."]
+layout_mode             = 1
+anchors_preset          = 15
+color                   = Color(0, 0, 0, 0)
+material                = SubResource("ShaderMat_Chromatic")
+
+; ── Ambient audio ────────────────────────────────────────────
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
+stream                  = ExtResource("6")
+autoplay                = false
+bus                     = "Ambient"
+
+; ── Timers ───────────────────────────────────────────────────
+[node name="TextTimer" type="Timer" parent="."]
+wait_time               = 2.8
+autostart               = false
+
+[node name="TipTimer" type="Timer" parent="."]
+wait_time               = 5.0
+autostart               = false
+
+; ── Animation player (optional keyed animations) ─────────────
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

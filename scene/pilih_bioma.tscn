@@ -1,64 +1,51 @@
 [gd_scene format=3 uid="uid://dnlpqtyv5r6gq"]
 
 [ext_resource type="Script" uid="uid://cod4cj6le5wio" path="res://script/pilih_bioma.gd" id="1_2hvuv"]
+[ext_resource type="Texture2D" uid="uid://cvwvq26n22xdj" path="res://asset/pilih_bioma.jpeg" id="2_bfugf"]
 
 [node name="PilihBioma" type="Control" unique_id=203102772]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_2hvuv")
 
-[node name="Background" type="ColorRect" parent="." unique_id=735023151]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Background" type="TextureRect" parent="." unique_id=452866107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bfugf")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1669261289]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.074
+anchor_right = 0.5
+anchor_bottom = 0.168
+offset_left = -239.0
+offset_right = 239.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 33
+text = "PILIH LOKASI MEMBERSIHKAN"
 
 [node name="BiomaCont" type="HBoxContainer" parent="." unique_id=1556054216]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CardSungai" type="PanelContainer" parent="BiomaCont" unique_id=2071691597]
-layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="BiomaCont/CardSungai" unique_id=224940431]
-layout_mode = 2
-
-[node name="GambarBioma" type="TextureRect" parent="BiomaCont/CardSungai/VBox" unique_id=1552206038]
-layout_mode = 2
-
-[node name="NamaBioma" type="Label" parent="BiomaCont/CardSungai/VBox" unique_id=1566298926]
-layout_mode = 2
-
-[node name="DeskripsiaBioma" type="Label" parent="BiomaCont/CardSungai/VBox" unique_id=2042213275]
-layout_mode = 2
-
-[node name="PilihButton" type="Button" parent="BiomaCont/CardSungai/VBox" unique_id=648174517]
-layout_mode = 2
-
-[node name="CardDanau" type="PanelContainer" parent="BiomaCont" unique_id=497108892]
-layout_mode = 2
-
-[node name="VBox" type="VBoxContainer" parent="BiomaCont/CardDanau" unique_id=772557922]
-layout_mode = 2
-
-[node name="GambarBioma" type="TextureRect" parent="BiomaCont/CardDanau/VBox" unique_id=1793937167]
-layout_mode = 2
-
-[node name="NamaBioma" type="Label" parent="BiomaCont/CardDanau/VBox" unique_id=1164931688]
-layout_mode = 2
-
-[node name="DeskripsiaBioma" type="Label" parent="BiomaCont/CardDanau/VBox" unique_id=1800601202]
-layout_mode = 2
-
-[node name="PilihButton" type="Button" parent="BiomaCont/CardDanau/VBox" unique_id=2039683554]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
 
 [node name="BackButton" type="Button" parent="." unique_id=296467599]
 layout_mode = 0

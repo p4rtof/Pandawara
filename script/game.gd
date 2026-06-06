@@ -5,6 +5,7 @@ extends Node2D
 var batas_ikan = 10
 
 func _ready():
+	MusicManager.putar("res://asset/audio/sound.ogg")
 	$Timer.wait_time = 2.0
 	$Timer.autostart = true
 	$Timer.start()

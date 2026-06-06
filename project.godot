@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 Global="*uid://bsof51siiver5"
 GameManager="*uid://bbbp7eiu8nkuf"
+MusicManager="*uid://cera7u0hsinc7"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 
