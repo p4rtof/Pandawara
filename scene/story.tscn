@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3ctb4rgyea3s"]
 
 [ext_resource type="Script" uid="uid://8t5yg1cjmyh0" path="res://script/story.gd" id="1_6neeb"]
+[ext_resource type="Texture2D" uid="uid://c4wa3kcjtgqup" path="res://asset/story/story1.png" id="2_8rr52"]
 
 [node name="Story" type="Control" unique_id=238379891]
 layout_mode = 3
@@ -11,21 +12,21 @@ script = ExtResource("1_6neeb")
 
 [node name="Background" type="TextureRect" parent="." unique_id=520381222]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1157.0
+offset_bottom = 661.0
+texture = ExtResource("2_8rr52")
 
-[node name="DialogBox" type="PanelContainer" parent="." unique_id=683939302]
+[node name="ProgressLabel" type="Label" parent="." unique_id=1945890749]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 23.0
 
-[node name="NamaLabel" type="Label" parent="DialogBox" unique_id=96108972]
-layout_mode = 2
-
-[node name="TeksLabel" type="Label" parent="DialogBox" unique_id=715560545]
-layout_mode = 2
-
-[node name="LanjurButton" type="Button" parent="." unique_id=54221740]
+[node name="LanjutButton" type="Button" parent="." unique_id=54221740]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 350.0
+offset_top = 526.0
+offset_right = 509.0
+offset_bottom = 579.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Lanjut"

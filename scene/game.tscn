@@ -79,4 +79,11 @@ offset_bottom = 257.0
 scale = Vector2(0.18006131, 0.18542334)
 texture = ExtResource("5_p1ry8")
 
+[node name="AlbumButton" type="Button" parent="UI" unique_id=159305130]
+offset_left = 20.0
+offset_top = 120.0
+offset_right = 105.0
+offset_bottom = 151.0
+text = "📖 Album"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

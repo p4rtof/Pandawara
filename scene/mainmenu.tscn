@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ml1j8acrfq26"]
+
+[ext_resource type="Script" uid="uid://dpvfc5wkw6hm0" path="res://script/mainmenu.gd" id="1_0khfh"]
+
+[node name="MainMenu" type="Control" unique_id=612956738]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0khfh")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2074228696]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=642290547]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 197.0
+offset_right = 620.0
+offset_bottom = 231.0
+theme_override_font_sizes/font_size = 24
+text = "PANDAWARA"
+
+[node name="SubtitleLabel" type="Label" parent="." unique_id=2014812884]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 240.0
+offset_right = 690.0
+offset_bottom = 274.0
+theme_override_font_sizes/font_size = 24
+text = "Tangkap Ikan Sapu-Sapu!"
+
+[node name="PlayButton" type="Button" parent="." unique_id=431945813]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 298.0
+offset_right = 680.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 24
+text = "▶ MULAI GAME"
+
+[node name="CreditLabel" type="Label" parent="." unique_id=1018137570]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

@@ -1,28 +1,41 @@
 extends Control
 
-var dialog = [
-	{"nama": "Narator", "teks": "Di sebuah sungai yang tercemar..."},
-	{"nama": "Narator", "teks": "Ikan sapu-sapu mulai merajalela!"},
-	{"nama": "Pak Budi", "teks": "Tolong tangkap ikan sapu-sapu itu!"},
-	{"nama": "Narator", "teks": "Petualanganmu dimulai..."}
+var pilih_bioma_scene = preload("res://scene/pilih_bioma.tscn")
+
+var gambar_story = [
+	"res://asset/story/story1.png",
+	"res://asset/story/story2.jpeg",
+	"res://asset/story/story3.png",
+	"res://asset/story/story4.png",
+	"res://asset/story/story5.png",
+	"res://asset/story/story6.png",
+	"res://asset/story/story7.png",
+	"res://asset/story/story8.png",
+	"res://asset/story/story9.png",
 ]
 
 var index = 0
 
-@onready var nama_label = $DialogBox/NamaLabel
-@onready var teks_label = $DialogBox/TeksLabel
+@onready var background = $Background
+@onready var lanjut_button = $LanjutButton
+@onready var progress_label = $ProgressLabel
 
 func _ready():
-	tampilkan_dialog(0)
+	lanjut_button.pressed.connect(_on_lanjut)
+	_tampilkan(0)
 
-func tampilkan_dialog(i: int):
-	nama_label.text = dialog[i]["nama"]
-	teks_label.text = dialog[i]["teks"]
-
-func _on_lanjut_button_pressed():
-	index += 1
-	if index >= dialog.size():
-		# Story selesai, pindah ke game
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+func _tampilkan(i: int):
+	background.texture = load(gambar_story[i])
+	progress_label.text = str(i + 1) + " / " + str(gambar_story.size())
+	
+	if i == gambar_story.size() - 1:
+		lanjut_button.text = "Mulai! ▶"
 	else:
-		tampilkan_dialog(index)
+		lanjut_button.text = "Lanjut ▶"
+
+func _on_lanjut():
+	index += 1
+	if index >= gambar_story.size():
+		get_tree().change_scene_to_packed(pilih_bioma_scene)
+	else:
+		_tampilkan(index)

@@ -5,9 +5,17 @@ extends Node2D
 var batas_ikan = 10
 
 func _ready():
-	$Timer.wait_time = 1.0
+	$Timer.wait_time = 2.0
 	$Timer.autostart = true
 	$Timer.start()
+	
+	# Scroll ke bioma yang dipilih
+	_pindah_ke_bioma(Global.bioma_dipilih)
+
+func _pindah_ke_bioma(index: int):
+	# Pindah kamera/player ke posisi bioma
+	var target_y = index * 1080  # sesuaikan tinggi bioma
+	$Player.position.y = target_y
 
 func _on_timer_timeout():
 	var ikan_sekarang = get_tree().get_nodes_in_group("ikan")
@@ -25,5 +33,5 @@ func _on_timer_timeout():
 	# Spawn dari ATAS layar, x random di area air
 	ikan_baru.position = Vector2(
 		randf_range(-200, 200),  # random kiri-kanan di area air
-		-350                      # selalu dari atas
+		-400                      # selalu dari atas
 	)
