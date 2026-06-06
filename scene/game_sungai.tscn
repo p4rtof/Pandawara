@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c72diyxp8dws4" path="res://scene/player.tscn" id="4_cjpnc"]
 [ext_resource type="Script" uid="uid://cbcp2kut1xfpk" path="res://script/ui.gd" id="6_2v02c"]
 [ext_resource type="Texture2D" uid="uid://ddktfaqjeipeh" path="res://asset/hati.jpeg" id="7_5yxky"]
-[ext_resource type="Texture2D" uid="uid://lonluny1yxof" path="res://asset/bg_sungai.png" id="7_35kdq"]
-[ext_resource type="Script" uid="uid://c34imm2thdqvt" path="res://script/background.gd" id="8_2gvfr"]
 
 [node name="game_sungai" type="Node2D" unique_id=1041822859]
-scale = Vector2(0.6247545, 0.6232934)
 script = ExtResource("1_35kdq")
 ikan_scene = ExtResource("2_2gvfr")
 sapu_sapu_scene = ExtResource("3_ad5km")
@@ -81,10 +78,5 @@ offset_top = 312.0
 offset_right = 875.0
 offset_bottom = 343.0
 text = "📖 Album"
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1679888582]
-texture = ExtResource("7_35kdq")
-centered = false
-script = ExtResource("8_2gvfr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

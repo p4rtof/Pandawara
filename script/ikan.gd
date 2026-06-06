@@ -30,17 +30,20 @@ func _process(delta):
 	if timer_ganti_arah <= 0:
 		_ganti_arah()
 	
-	if position.x > 200:
-		position.x = 200
+	# Batas area air X (Kiri - Kanan)
+	if position.x > 1150:
+		position.x = 1150
 		_ganti_arah()
-	elif position.x < -200:
-		position.x = -200
+	elif position.x < 350:
+		position.x = 350
 		_ganti_arah()
-	if position.y > 300:
-		position.y = 300
+		
+	# Batas area air Y (Atas - Bawah)
+	if position.y > 950:
+		position.y = 950
 		_ganti_arah()
-	elif position.y < -300:
-		position.y = -300
+	elif position.y < 50:
+		position.y = 50
 		_ganti_arah()
 	
 	# Hitung durasi tekan

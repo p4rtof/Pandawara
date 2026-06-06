@@ -8,8 +8,8 @@ const SPEED = 300.0
 
 # ← SESUAIKAN angka ini dengan lebar sungai di gambarmu!
 # PERHATIKAN! Karena posisi minus, kiri lebih kecil dari kanan
-const BATAS_KIRI = -1300.0   # ← angka lebih kecil (kiri)
-const BATAS_KANAN = -610.0  # ← angka lebih besar (kanan)
+const BATAS_KIRI = -200.0   # Batas daratan kiri
+const BATAS_KANAN = 1150.0 # Batas daratan kanan
 
 func _ready():
 	jaring_kanan.disabled = true
@@ -29,12 +29,12 @@ func _physics_process(_delta):
 		sprite.flip_h = true
 		jaring_kanan.disabled = true
 		jaring_kiri.disabled = false
-	else:
-		jaring_kanan.disabled = true
-		jaring_kiri.disabled = true
+	#else:
+		#jaring_kanan.disabled = true
+		#jaring_kiri.disabled = true
 
 	move_and_slide()
 	
 	# Batasi posisi player di area sungai
-	position.x = clamp(position.x, BATAS_KIRI, BATAS_KANAN)
+	#position.x = clamp(position.x, BATAS_KIRI, BATAS_KANAN)
 	

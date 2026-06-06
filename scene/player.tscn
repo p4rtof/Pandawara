@@ -11,34 +11,38 @@ radius = 32.528076
 height = 83.42798
 
 [node name="Player" type="CharacterBody2D" unique_id=952140070]
-position = Vector2(576, 300)
 script = ExtResource("1_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1613402600]
-position = Vector2(639, 317)
 scale = Vector2(0.3535156, 0.37304688)
 texture = ExtResource("2_fvtld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758374539]
-position = Vector2(628, 301)
+position = Vector2(-7, -17)
 shape = SubResource("RectangleShape2D_ct4mp")
 
 [node name="Jaring" type="Area2D" parent="." unique_id=2074494456 groups=["jaring"]]
-position = Vector2(628, 301)
 collision_layer = 3
 
 [node name="JaringKanan" type="CollisionShape2D" parent="Jaring" unique_id=407085561 groups=["jaring"]]
-position = Vector2(90, 74.99994)
+position = Vector2(80, 59)
 rotation = -0.7845735
 shape = SubResource("CapsuleShape2D_s4jxa")
 
 [node name="JaringKiri" type="CollisionShape2D" parent="Jaring" unique_id=1891665226 groups=["jaring"]]
-position = Vector2(-69, 74)
+position = Vector2(-80, 59)
 rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_s4jxa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=714789309]
-limit_left = 0
+limit_left = 4
 limit_top = -99876
-limit_right = 1152
+limit_right = 1156
 limit_bottom = 648
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.6
+drag_top_margin = 0.6
+drag_right_margin = 0.6
+drag_bottom_margin = 0.6
