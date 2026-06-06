@@ -31,8 +31,14 @@ func _on_timer_timeout():
 	
 	add_child(ikan_baru)
 	
-	# Spawn dari ATAS layar, x random di area air
+	# Spawn mengikuti posisi Y player, di area air
+	var player_y = $Player.position.y
 	ikan_baru.position = Vector2(
-		randf_range(-200, 200),  # random kiri-kanan di area air
-		-400                      # selalu dari atas
+		randf_range(-150, 150),          # area air kiri-kanan
+		player_y + randf_range(-300, 300) # sekitar player
 	)
+	
+	# Fade in smooth
+	ikan_baru.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(ikan_baru, "modulate:a", 1.0, 1.5)

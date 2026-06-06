@@ -16,7 +16,7 @@ func _ready():
 	jaring_kiri.disabled = true
 
 func _physics_process(_delta):
-	print("X: ", position.x)
+	#/print("X: ", position.x)
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_dir * SPEED
 	

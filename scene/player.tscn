@@ -11,6 +11,7 @@ radius = 32.528076
 height = 83.42798
 
 [node name="Player" type="CharacterBody2D" unique_id=952140070]
+position = Vector2(576, 300)
 script = ExtResource("1_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1613402600]
@@ -37,8 +38,7 @@ rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_s4jxa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=714789309]
-position = Vector2(628, 301)
-limit_left = -576
-limit_top = -99999
-limit_right = 576
-limit_bottom = 500
+limit_left = 0
+limit_top = -99876
+limit_right = 1152
+limit_bottom = 648

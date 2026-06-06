@@ -17,4 +17,4 @@ func _on_restart_pressed():
 	Global.album_koleksi.clear()
 	
 	# Balik ke game
-	get_tree().change_scene_to_file("res://scene/game.tscn")
+	get_tree().change_scene_to_file("res://scene/game_sungai.tscn")
