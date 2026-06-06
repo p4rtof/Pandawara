@@ -30,30 +30,22 @@ func _process(delta):
 	if timer_ganti_arah <= 0:
 		_ganti_arah()
 	
-	# Batas area air X (Kiri - Kanan)
+	# Batas X saja (kiri-kanan sungai)
 	if position.x > 1150:
 		position.x = 1150
 		_ganti_arah()
 	elif position.x < 350:
 		position.x = 350
 		_ganti_arah()
-		
-	# Batas area air Y (Atas - Bawah)
-	if position.y > 950:
-		position.y = 950
-		_ganti_arah()
-	elif position.y < 50:
-		position.y = 50
-		_ganti_arah()
+	# HAPUS batas Y biar ikan bisa berenang ke mana saja!
 	
-	# Hitung durasi tekan
 	if sedang_ditekan:
 		timer_tekan += delta
 		if timer_tekan >= LAMA_TEKAN:
 			sedang_ditekan = false
 			timer_tekan = 0.0
 			_tambah_ke_album()
-
+			
 func _ganti_arah():
 	var sudut = randf_range(0, TAU)
 	arah = Vector2(cos(sudut), sin(sudut))
