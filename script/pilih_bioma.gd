@@ -1,144 +1,149 @@
 extends Control
 
-var data_bioma = [
+const BIOMA = [
 	{
-		"nama": "SUNGAI PERKOTAAN",
+		"nama": "HULU",
 		"gambar": "res://asset/bg_sungai.png",
-		"tingkat": "TINGGI",
-		"tingkat_warna": Color(1, 0.2, 0.2),
-		"deskripsi": "Cairan limbah berwarna gelap.",
-		"icon": "🗑️",
-		"kesulitan": 3,
+		"kunci_poin": 20,
+		"warna": Color("#4fc3f7"),
+		"warna_gelap": Color("#0288d1"),
+		"info": ["Tidak ada sampah", "Ikan jinak", "Tidak ada buaya"],
 		"index": 0
 	},
 	{
-		"nama": "ALIRAN HUTAN",
-		"gambar": "res://asset/bg_pantai.png",
-		"tingkat": "RENDAH",
-		"tingkat_warna": Color(0.2, 1, 0.2),
-		"deskripsi": "Hambatan alami seperti ranting.",
-		"icon": "🌿",
-		"kesulitan": 1,
+		"nama": "PERTENGAHAN",
+		"gambar": "res://asset/bg_blur.png",
+		"kunci_poin": 100,
+		"warna": Color("#a5d6a7"),
+		"warna_gelap": Color("#388e3c"),
+		"info": [],
 		"index": 1
 	},
 	{
-		"nama": "MUARA PANTAI",
-		"gambar": "res://asset/bg_malam.jpg",
-		"tingkat": "SEDANG",
-		"tingkat_warna": Color(1, 0.8, 0.1),
-		"deskripsi": "Sampah laut menumpuk di pesisir.",
-		"icon": "🐚",
-		"kesulitan": 2,
+		"nama": "PERKOTAAN",
+		"gambar": "res://asset/bg_pantai.png",
+		"kunci_poin": 300,
+		"warna": Color("#ffcc80"),
+		"warna_gelap": Color("#e65100"),
+		"info": [],
 		"index": 2
-	},
+	}
 ]
 
-@onready var bioma_cont = $BiomaCont
-@onready var title_label = $TitleLabel
+@onready var hbox = $HBoxContainer
+@onready var kembali_button = $KembaliButton
 
 func _ready():
-	MusicManager.putar("res://asset/audio/sound.ogg")
-	title_label.text = "PILIH LOKASI MEMBERSIHKAN"
-	
-	# Tengahkan BiomaCont
-	bioma_cont.alignment = BoxContainer.ALIGNMENT_CENTER
-	bioma_cont.add_theme_constant_override("separation", 30)
-	
+	kembali_button.pressed.connect(func(): get_tree().change_scene_to_file("res://scene/mainmenu.tscn"))
 	_buat_semua_kartu()
 
 func _buat_semua_kartu():
-	for bioma in data_bioma:
-		bioma_cont.add_child(_buat_card(bioma))
+	for data in BIOMA:
+		var kartu = _buat_kartu(data)
+		hbox.add_child(kartu)
 
-func _buat_card(bioma: Dictionary) -> PanelContainer:
+func _buat_kartu(data: Dictionary) -> Control:
+	var terkunci = Global.poin < data["kunci_poin"]
+
+	# Panel utama
 	var panel = PanelContainer.new()
-	panel.custom_minimum_size = Vector2(260, 420)
+	panel.custom_minimum_size = Vector2(280, 420)
+	var style = StyleBoxFlat.new()
+	style.bg_color = data["warna"]
+	style.border_color = data["warna_gelap"]
+	style.set_border_width_all(4)
+	style.set_corner_radius_all(20)
+	panel.add_theme_stylebox_override("panel", style)
 
 	var vbox = VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 8)
+	panel.add_child(vbox)
 
-	# Nama
+	# Nama bioma
 	var nama = Label.new()
-	nama.text = bioma["nama"]
+	nama.text = data["nama"]
 	nama.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	nama.add_theme_font_size_override("font_size", 20)
+	nama.add_theme_font_size_override("font_size", 22)
 	nama.add_theme_color_override("font_color", Color.WHITE)
+	vbox.add_child(nama)
 
-	# Gambar
-	var gambar = TextureRect.new()
-	gambar.texture = load(bioma["gambar"])
-	gambar.custom_minimum_size = Vector2(240, 160)
-	gambar.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	gambar.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+	# Gambar bioma
+	var gambar_cont = PanelContainer.new()
+	gambar_cont.custom_minimum_size = Vector2(260, 180)
+	var gambar_style = StyleBoxFlat.new()
+	gambar_style.set_corner_radius_all(12)
+	gambar_cont.add_theme_stylebox_override("panel", gambar_style)
+	vbox.add_child(gambar_cont)
 
-	# Tingkat sampah
-	var tingkat_hbox = HBoxContainer.new()
-	tingkat_hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	var img = TextureRect.new()
+	img.texture = load(data["gambar"])
+	img.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	img.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+	img.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	gambar_cont.add_child(img)
 
-	var tingkat_txt = Label.new()
-	tingkat_txt.text = "Tingkat Sampah: "
-	tingkat_txt.add_theme_font_size_override("font_size", 14)
-	tingkat_txt.add_theme_color_override("font_color", Color.WHITE)
+	# Icon gembok jika terkunci
+	if terkunci:
+		var gembok = Label.new()
+		gembok.text = "🔒"
+		gembok.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		gembok.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		gembok.add_theme_font_size_override("font_size", 60)
+		gembok.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		gambar_cont.add_child(gembok)
 
-	var tingkat_val = Label.new()
-	tingkat_val.text = bioma["tingkat"]
-	tingkat_val.add_theme_font_size_override("font_size", 14)
-	tingkat_val.add_theme_color_override("font_color", bioma["tingkat_warna"])
+	# Info tingkat sampah
+	var info_panel = PanelContainer.new()
+	var info_style = StyleBoxFlat.new()
+	info_style.bg_color = Color(1, 1, 1, 0.3)
+	info_style.set_corner_radius_all(10)
+	info_panel.add_theme_stylebox_override("panel", info_style)
+	vbox.add_child(info_panel)
 
-	tingkat_hbox.add_child(tingkat_txt)
-	tingkat_hbox.add_child(tingkat_val)
+	var info_vbox = VBoxContainer.new()
+	info_panel.add_child(info_vbox)
 
-	# Deskripsi + icon
-	var desc_hbox = HBoxContainer.new()
-	desc_hbox.add_theme_constant_override("separation", 8)
+	var tingkat_label = Label.new()
+	tingkat_label.text = "Tingkat Sampah:"
+	tingkat_label.add_theme_font_size_override("font_size", 12)
+	info_vbox.add_child(tingkat_label)
 
-	var icon_label = Label.new()
-	icon_label.text = bioma["icon"]
-	icon_label.add_theme_font_size_override("font_size", 24)
-
-	var desc = Label.new()
-	desc.text = bioma["deskripsi"]
-	desc.autowrap_mode = TextServer.AUTOWRAP_WORD
-	desc.add_theme_font_size_override("font_size", 13)
-	desc.add_theme_color_override("font_color", Color(0.9, 0.9, 0.9))
-	desc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-
-	desc_hbox.add_child(icon_label)
-	desc_hbox.add_child(desc)
-
-	# Bintang
-	var bintang_label = Label.new()
-	var bintang_str = ""
-	for i in 3:
-		bintang_str += "⭐" if i < bioma["kesulitan"] else "☆"
-	bintang_label.text = bintang_str
-	bintang_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	bintang_label.add_theme_font_size_override("font_size", 20)
+	if terkunci:
+		var locked_label = Label.new()
+		locked_label.text = "Informasi terbuka saat\n%d poin terkumpul" % data["kunci_poin"]
+		locked_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		locked_label.add_theme_font_size_override("font_size", 11)
+		info_vbox.add_child(locked_label)
+	else:
+		for info in data["info"]:
+			var l = Label.new()
+			l.text = "• " + info
+			l.add_theme_font_size_override("font_size", 11)
+			info_vbox.add_child(l)
 
 	# Tombol
-	var btn = Button.new()
-	btn.text = "PILIH"
-	btn.custom_minimum_size = Vector2(200, 50)
-	btn.add_theme_font_size_override("font_size", 22)
-	btn.pressed.connect(_on_pilih.bind(bioma["index"]))
+	var tombol = Button.new()
+	tombol.custom_minimum_size = Vector2(240, 45)
+	var tombol_style = StyleBoxFlat.new()
 
-	vbox.add_child(nama)
-	vbox.add_child(gambar)
-	vbox.add_child(tingkat_hbox)
-	vbox.add_child(desc_hbox)
-	vbox.add_child(bintang_label)
-	vbox.add_child(btn)
-	panel.add_child(vbox)
+	if terkunci:
+		tombol.text = "Terkunci"
+		tombol.disabled = true
+		tombol_style.bg_color = data["warna_gelap"]
+	else:
+		tombol.text = "Pilih"
+		tombol_style.bg_color = Color("#1565c0")
+		var idx = data["index"]
+		tombol.pressed.connect(func(): _pilih_bioma(idx))
+
+	tombol_style.set_corner_radius_all(20)
+	tombol.add_theme_stylebox_override("normal", tombol_style)
+	tombol.add_theme_color_override("font_color", Color.WHITE)
+	tombol.add_theme_font_size_override("font_size", 16)
+	vbox.add_child(tombol)
+
 	return panel
 
-func _on_pilih(index: int):
+func _pilih_bioma(index: int):
 	Global.bioma_dipilih = index
-	
-	# Arahkan ke scene sesuai bioma
-	match index:
-		0:
-			get_tree().change_scene_to_file("res://scene/game_sungai.tscn")
-		1:
-			get_tree().change_scene_to_file("res://scene/game_hutan.tscn")
-		2:
-			get_tree().change_scene_to_file("res://scene/game_muara.tscn")
+	get_tree().change_scene_to_file("res://scene/game_sungai.tscn")

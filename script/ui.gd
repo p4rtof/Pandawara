@@ -19,6 +19,7 @@ func _process(_delta):
 	hati3.visible = Global.nyawa >= 3
 
 func _buka_album():
+	get_tree().paused = true
 	if get_tree().get_first_node_in_group("album"):
 		return
 	var album = album_scene.instantiate()

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cg0x7laby36ry"]
 
 [ext_resource type="Script" uid="uid://dlpjpoxyxqye3" path="res://scene/setting.gd" id="1_xthoy"]
+[ext_resource type="Texture2D" uid="uid://uilyrpyorwo1" path="res://asset/Group 15.png" id="2_2wb80"]
+[ext_resource type="Texture2D" uid="uid://byiu5lwe8s613" path="res://asset/Rectangle 16.png" id="3_123qk"]
+[ext_resource type="Texture2D" uid="uid://wjs1of8ooc8" path="res://asset/Mask group.png" id="4_8pksm"]
 
 [node name="setting" type="Control" unique_id=3923517]
 layout_mode = 3
@@ -37,9 +40,11 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Suara" unique_id=1630089769]
 layout_mode = 2
+texture = ExtResource("2_2wb80")
 
 [node name="Suara" type="Label" parent="Panel/VBoxContainer/Suara" unique_id=1419940640]
 layout_mode = 2
+text = "Suara"
 
 [node name="SuaraSlider" type="HSlider" parent="Panel/VBoxContainer/Suara" unique_id=1677235923]
 layout_mode = 2
@@ -49,6 +54,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Music" unique_id=1465687131]
 layout_mode = 2
+texture = ExtResource("3_123qk")
 
 [node name="Music" type="Label" parent="Panel/VBoxContainer/Music" unique_id=388509207]
 layout_mode = 2
@@ -61,6 +67,7 @@ layout_mode = 2
 
 [node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Bahasa" unique_id=147168519]
 layout_mode = 2
+texture = ExtResource("4_8pksm")
 
 [node name="Bahasa" type="Label" parent="Panel/VBoxContainer/Bahasa" unique_id=450796014]
 layout_mode = 2

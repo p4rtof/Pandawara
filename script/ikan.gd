@@ -5,6 +5,7 @@ extends Area2D
 @export var adalah_sapu_sapu: bool = false
 @export var poin_tangkap: int = 10
 @export var texture_ikan: Texture2D
+@export var kelangkaan: String = "Umum" 
 
 var arah = Vector2.ZERO
 var kecepatan = 0.0
@@ -111,5 +112,6 @@ func _get_data() -> Dictionary:
 		"nama": nama_ikan,
 		"deskripsi": deskripsi,
 		"adalah_sapu_sapu": adalah_sapu_sapu,
-		"texture": texture_ikan
+		"texture": texture_ikan,
+		"kelangkaan": kelangkaan 
 	}

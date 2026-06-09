@@ -52,3 +52,9 @@ func _on_kembali():  # ← TAMBAH INI
 	if index > 0:
 		index -= 1
 		_tampilkan(index)
+		
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE:
+			_on_lanjut()

@@ -27,20 +27,34 @@ stretch_mode = 6
 
 [node name="LanjutButton" type="Button" parent="." unique_id=54221740]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 526.0
-offset_right = 509.0
-offset_bottom = 579.0
+offset_left = 139.00002
+offset_top = 521.0
+offset_right = 298.0
+offset_bottom = 574.0
+scale = Vector2(0.7445389, 0.6600989)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Lanjut"
 
 [node name="KembaliButton" type="Button" parent="." unique_id=335948070]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 530.0
-offset_right = 359.0
-offset_bottom = 583.0
+offset_left = 24.000015
+offset_top = 523.0
+offset_right = 158.00002
+offset_bottom = 576.0
+scale = Vector2(0.8004679, 0.6609405)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Kembali"
+
+[node name="PreeSpace" type="Label" parent="." unique_id=615043932]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 590.0
+offset_right = 576.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "tekan SPACE untuk melanjutkan ...."
+horizontal_alignment = 1
+vertical_alignment = 1
