@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cg0x7laby36ry"]
+
+[ext_resource type="Script" uid="uid://dlpjpoxyxqye3" path="res://scene/setting.gd" id="1_xthoy"]
+
+[node name="setting" type="Control" unique_id=3923517]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xthoy")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=535706255]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackButton" type="Button" parent="." unique_id=1331931121]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1621987060]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1936658813]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1786743829]
+layout_mode = 2
+
+[node name="Suara" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=674554621]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Suara" unique_id=1630089769]
+layout_mode = 2
+
+[node name="Suara" type="Label" parent="Panel/VBoxContainer/Suara" unique_id=1419940640]
+layout_mode = 2
+
+[node name="SuaraSlider" type="HSlider" parent="Panel/VBoxContainer/Suara" unique_id=1677235923]
+layout_mode = 2
+
+[node name="Music" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=2122751440]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Music" unique_id=1465687131]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="Panel/VBoxContainer/Music" unique_id=388509207]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBoxContainer/Music" unique_id=545573559]
+layout_mode = 2
+
+[node name="Bahasa" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1102676709]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer/Bahasa" unique_id=147168519]
+layout_mode = 2
+
+[node name="Bahasa" type="Label" parent="Panel/VBoxContainer/Bahasa" unique_id=450796014]
+layout_mode = 2
+
+[node name="BahasaOption" type="OptionButton" parent="Panel/VBoxContainer/Bahasa" unique_id=920478266]
+layout_mode = 2

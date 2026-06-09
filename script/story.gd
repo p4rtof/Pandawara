@@ -4,7 +4,7 @@ var pilih_bioma_scene = preload("res://scene/pilih_bioma.tscn")
 
 var gambar_story = [
 	"res://asset/story/story1.png",
-	"res://asset/story/story2.jpeg",
+	"res://asset/story/story2.png",
 	"res://asset/story/story3.png",
 	"res://asset/story/story4.png",
 	"res://asset/story/story5.png",
@@ -12,13 +12,15 @@ var gambar_story = [
 	"res://asset/story/story7.png",
 	"res://asset/story/story8.png",
 	"res://asset/story/story9.png",
+	"res://asset/story/story10.png",
+	"res://asset/story/story11.png",
+	"res://asset/story/story12.png",
 ]
 
 var index = 0
 
 @onready var background = $Background
 @onready var lanjut_button = $LanjutButton
-@onready var progress_label = $ProgressLabel
 @onready var kembali_button = $KembaliButton  # ← TAMBAH INI
 
 func _ready():
@@ -29,7 +31,7 @@ func _ready():
 
 func _tampilkan(i: int):
 	background.texture = load(gambar_story[i])
-	progress_label.text = str(i + 1) + " / " + str(gambar_story.size())
+	
 	
 	# Sembunyikan tombol kembali di halaman pertama
 	kembali_button.visible = i > 0  # ← TAMBAH INI

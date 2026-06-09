@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cik7gb8c102pr"
-path="res://.godot/imported/story2.jpeg-6bacf8ed34c70825678c0908697ffcc7.ctex"
+uid="uid://7uplgyag1o1l"
+path="res://.godot/imported/pengaturan.png-0d2d59ce8cbf1a673bf77f0b0e55cf70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/story/story2.jpeg"
-dest_files=["res://.godot/imported/story2.jpeg-6bacf8ed34c70825678c0908697ffcc7.ctex"]
+source_file="res://asset/pengaturan.png"
+dest_files=["res://.godot/imported/pengaturan.png-0d2d59ce8cbf1a673bf77f0b0e55cf70.ctex"]
 
 [params]
 

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c53f50j8p1gdv"]
+
+[ext_resource type="Script" uid="uid://dc3s3j2wmor1y" path="res://script/popup_ikan.gd" id="1_fbfks"]
+
+[node name="PopupIkan" type="Control" unique_id=318037408]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fbfks")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1796811361]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 150.0
+offset_right = 750.0
+offset_bottom = 450.0
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer" unique_id=128333205]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+
+[node name="JudulLabel" type="Label" parent="PanelContainer/VBox" unique_id=1526621277]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "IKAN BARU DITEMUKAN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GambarIkan" type="TextureRect" parent="PanelContainer/VBox" unique_id=1521683391]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NamaLabel" type="Label" parent="PanelContainer/VBox" unique_id=1131558300]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="DeskripsiLabel" type="Label" parent="PanelContainer/VBox" unique_id=651452163]
+layout_mode = 2
+horizontal_alignment = 1

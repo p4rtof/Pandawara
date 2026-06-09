@@ -9,6 +9,7 @@ extends CanvasLayer
 var album_scene = preload("res://scene/album.tscn")
 
 func _ready():
+	add_to_group("ui_layer")  # ← penting untuk popup!
 	album_button.pressed.connect(_buka_album)
 
 func _process(_delta):
@@ -18,7 +19,6 @@ func _process(_delta):
 	hati3.visible = Global.nyawa >= 3
 
 func _buka_album():
-	# Biar gak dobel kalau udah terbuka
 	if get_tree().get_first_node_in_group("album"):
 		return
 	var album = album_scene.instantiate()

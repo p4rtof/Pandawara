@@ -2,10 +2,63 @@
 
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_ncybc"]
 [ext_resource type="Texture2D" uid="uid://c5rfc06p8qrg0" path="res://asset/sapu_sapu.png" id="2_vm3ti"]
+[ext_resource type="Texture2D" uid="uid://21e38fdqf6c0" path="res://asset/Ikan animation.png" id="3_vm3ti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_curac"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(0, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa7ai"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(512, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1dwy"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(0, 341, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrgkc"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(512, 341, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihpix"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(0, 682, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6df7y"]
+atlas = ExtResource("3_vm3ti")
+region = Rect2(512, 682, 512, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8dx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_curac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa7ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1dwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrgkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihpix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6df7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 42.869667
 height = 262.02136
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vm3ti"]
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
 rotation = 1.5707964
@@ -15,10 +68,22 @@ script = ExtResource("1_ncybc")
 adalah_sapu_sapu = true
 texture_ikan = ExtResource("2_vm3ti")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=736414504]
+visible = false
+position = Vector2(-26, -16.076569)
+scale = Vector2(0.6875, 0.6511243)
+sprite_frames = SubResource("SpriteFrames_v8dx6")
+frame_progress = 0.123271115
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
 texture = ExtResource("2_vm3ti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
 position = Vector2(-24.999998, 4.000002)
 rotation = 1.5471337
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_26uxn")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1359196459]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vm3ti")

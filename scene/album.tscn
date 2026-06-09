@@ -4,59 +4,58 @@
 
 [node name="Album" type="Control" unique_id=1284632176]
 layout_mode = 3
-anchor_left = 0.041
-anchor_top = 0.134
-anchor_right = 0.19000001
-anchor_bottom = 0.19600001
-offset_left = -0.23200226
-offset_top = 0.16799927
-offset_right = 0.11997986
-offset_bottom = -0.008003235
-scale = Vector2(5.6400003, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.8521578, 1.0074091)
 script = ExtResource("1_xv7a2")
 
-[node name="Background" type="ColorRect" parent="." unique_id=257792439]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=381647965]
 layout_mode = 0
-offset_left = -2.8368835
-offset_top = 3.9999998
-offset_right = 135.16312
-offset_bottom = 44.0
-scale = Vector2(1.2863032, 5.7576694)
-color = Color(0.4618892, 0.35559893, 0, 1)
+offset_right = 300.87033
+offset_bottom = 643.2342
 
-[node name="TitleLabel" type="Label" parent="." unique_id=903829820]
+[node name="TitleLabel" type="Label" parent="." unique_id=1214075225]
 layout_mode = 0
-offset_left = -1.7730522
-offset_top = -61.0
-offset_right = 108.226944
-offset_bottom = -38.0
-scale = Vector2(0.45833942, 2.5609403)
-theme_override_colors/font_color = Color(0.86559457, 0.15189925, 0, 1)
-text = "Album Koleksi"
+offset_left = 321.1187
+offset_top = 24.816135
+offset_right = 667.1187
+offset_bottom = 69.81613
+theme_override_font_sizes/font_size = 32
+text = "📖 Album Koleksi Ikan"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1909070759]
+[node name="JumlahLabel" type="Label" parent="." unique_id=1771082679]
 layout_mode = 0
-offset_left = -1.5957451
-offset_top = 9.0
-offset_right = 138.40425
-offset_bottom = 179.0
-scale = Vector2(4.39064, 1)
+offset_left = 3.115137
+offset_top = 85.3675
+offset_right = 43.115135
+offset_bottom = 192.57321
+theme_override_colors/font_color = Color(0.65764004, 0, 0.1615921, 1)
 
-[node name="IkanList" type="VBoxContainer" parent="ScrollContainer" unique_id=2058954157]
-custom_minimum_size = Vector2(140, 170)
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1711081329]
+layout_mode = 0
+offset_left = 4.1535163
+offset_top = 99.26454
+offset_right = 704.7998
+offset_bottom = 2228.4888
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=126653222]
 layout_mode = 2
+columns = 4
 
-[node name="TutupButton" type="Button" parent="." unique_id=1725544760]
+[node name="Background" type="TextureRect" parent="." unique_id=2019297316]
+visible = false
 layout_mode = 0
-offset_left = 147.51773
-offset_top = -35.0
-offset_right = 268.51773
-offset_bottom = -26.0
-scale = Vector2(-0.20078237, 2.4360309)
+offset_right = 138.0
+offset_bottom = 40.0
 
-[node name="JumlahLabel" type="Label" parent="." unique_id=866362686]
+[node name="TutupButton" type="Button" parent="." unique_id=1150663260]
 layout_mode = 0
-offset_right = 20.0
-offset_bottom = 60.0
-theme_override_colors/font_color = Color(0.48178947, 0.48178947, 0.48178947, 1)
-theme_override_font_sizes/font_size = 14
+offset_left = 282.1795
+offset_top = 1.9852905
+offset_right = 300.1795
+offset_bottom = 32.98529
+scale = Vector2(1.0740489, 2.1812577)
+text = "X"

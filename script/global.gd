@@ -10,3 +10,5 @@ func reset_game():
 	nyawa = 3
 	album_koleksi.clear()
 	bioma_dipilih = 0
+	
+	

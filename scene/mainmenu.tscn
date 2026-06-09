@@ -1,21 +1,15 @@
 [gd_scene format=3 uid="uid://ml1j8acrfq26"]
 
 [ext_resource type="Script" uid="uid://dpvfc5wkw6hm0" path="res://script/mainmenu.gd" id="1_0khfh"]
+[ext_resource type="Texture2D" uid="uid://wip2irsr1us5" path="res://asset/bg_setting.png" id="2_3l6v1"]
 [ext_resource type="AudioStream" uid="uid://c0ryqi22cm6sr" path="res://asset/audio/sound.ogg" id="2_h8uk4"]
-[ext_resource type="Texture2D" uid="uid://urlue1n06p3y" path="res://asset/background.png" id="2_n5p00"]
-[ext_resource type="Texture2D" uid="uid://jifnhwiduynq" path="res://asset/playButton.png" id="3_eekkd"]
+[ext_resource type="Texture2D" uid="uid://2ceepedw5dvl" path="res://asset/mulai_game.png" id="3_egvns"]
+[ext_resource type="Texture2D" uid="uid://7uplgyag1o1l" path="res://asset/pengaturan.png" id="4_omfg1"]
+[ext_resource type="Texture2D" uid="uid://d2md2uyomsgmk" path="res://asset/keluar.png" id="5_cwq8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vh50t"]
-atlas = ExtResource("3_eekkd")
+atlas = ExtResource("3_egvns")
 region = Rect2(0, -1.273, 0, 116)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3l6v1"]
-atlas = ExtResource("3_eekkd")
-region = Rect2(0, 290.68, 0, 116)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_egvns"]
-atlas = ExtResource("3_eekkd")
-region = Rect2(0, 140, 0, 116)
 
 [node name="MainMenu" type="Control" unique_id=612956738]
 layout_mode = 3
@@ -33,61 +27,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_n5p00")
-
-[node name="TitleLabel" type="Label" parent="." unique_id=642290547]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.33
-anchor_right = 0.503
-anchor_bottom = 0.33
-offset_left = -175.0
-offset_top = -38.0
-offset_right = 175.0
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 55
-text = "PANDAWARA"
-
-[node name="SubtitleLabel" type="Label" parent="." unique_id=2014812884]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.445
-anchor_right = 0.503
-anchor_bottom = 0.445
-offset_left = -145.0
-offset_top = -17.0
-offset_right = 145.0
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 24
-text = "Tangkap Ikan Sapu-Sapu!"
+texture = ExtResource("2_3l6v1")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="PlayButton" type="TextureButton" parent="." unique_id=828316547]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.619
-anchor_right = 0.5
-anchor_bottom = 0.667
-offset_left = -205.5
-offset_top = -58.0
-offset_right = 205.5
-offset_bottom = 58.0
+anchor_left = 0.42100003
+anchor_top = 0.455
+anchor_right = 0.64400005
+anchor_bottom = 0.55600005
+offset_left = 0.007965088
+offset_top = 0.16000366
+offset_right = 144.11194
+offset_bottom = 50.711975
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.64131534, 0.60795164)
 texture_normal = SubResource("AtlasTexture_vh50t")
-texture_pressed = SubResource("AtlasTexture_3l6v1")
-texture_hover = SubResource("AtlasTexture_egvns")
+texture_pressed = ExtResource("3_egvns")
+texture_hover = ExtResource("3_egvns")
 
-[node name="CreditLabel" type="Label" parent="." unique_id=1018137570]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="SettingButton" type="TextureButton" parent="." unique_id=1840026029]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.596
+anchor_right = 0.646
+anchor_bottom = 0.71000004
+offset_left = -0.29608154
+offset_top = -0.20800781
+offset_right = 143.80798
+offset_bottom = 47.920013
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64131534, 0.60795164)
+texture_normal = ExtResource("4_omfg1")
+texture_pressed = ExtResource("4_omfg1")
+texture_hover = ExtResource("4_omfg1")
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=1405887744]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42400002
+anchor_top = 0.739
+anchor_right = 0.647
+anchor_bottom = 0.85400003
+offset_left = -0.44802856
+offset_top = 0.1279602
+offset_right = 143.65607
+offset_bottom = 47.60797
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64131534, 0.60795164)
+texture_normal = ExtResource("5_cwq8t")
+texture_pressed = ExtResource("5_cwq8t")
+texture_hover = ExtResource("5_cwq8t")
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1609722520]
 stream = ExtResource("2_h8uk4")
