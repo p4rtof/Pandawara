@@ -1,11 +1,62 @@
 [gd_scene format=3 uid="uid://c68twrc5gy1g8"]
 
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_26uxn"]
+[ext_resource type="Texture2D" uid="uid://dpt625l7f05n1" path="res://asset/anime-sapu-sapu.png" id="3_1rigm"]
 [ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/ikan_nn.png" id="3_c4xmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 42.869667
 height = 262.02136
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c8m2"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(0, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdlx0"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(512, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h43p1"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(512, 341, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwl1m"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(0, 682, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsr17"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(512, 682, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3xgi"]
+atlas = ExtResource("3_1rigm")
+region = Rect2(0, 341, 512, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_287e4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c8m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdlx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h43p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwl1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsr17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3xgi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
 rotation = 1.5707964
@@ -23,3 +74,7 @@ texture = ExtResource("3_c4xmv")
 position = Vector2(-24.999998, 4.000002)
 rotation = 1.5471337
 shape = SubResource("CapsuleShape2D_26uxn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=105438352]
+position = Vector2(-6.0000014, -40.191425)
+sprite_frames = SubResource("SpriteFrames_287e4")

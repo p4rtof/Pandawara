@@ -16,12 +16,12 @@ const LAMA_TEKAN = 0.8
 var popup_scene = preload("res://scene/popup_ikan.tscn")
 
 func _ready():
-	$Sprite2D.texture = texture_ikan
+	$AnimatedSprite2D.play("default")
 	kecepatan = randf_range(80, 150)
 	input_pickable = true
 	area_entered.connect(_on_area_entered)
 	arah = Vector2(randf_range(-0.3, 0.3), 1).normalized()
-	$Sprite2D.flip_h = arah.x < 0
+	$AnimatedSprite2D.flip_h = arah.x < 0
 	timer_ganti_arah = randf_range(2.0, 4.0)
 
 func _process(delta):
@@ -45,7 +45,7 @@ func _process(delta):
 func _ganti_arah():
 	var sudut = randf_range(0, TAU)
 	arah = Vector2(cos(sudut), sin(sudut))
-	$Sprite2D.flip_h = arah.x < 0
+	$AnimatedSprite2D.flip_h = arah.x < 0
 	timer_ganti_arah = randf_range(2.0, 4.0)
 
 func _cek_dan_tambah_album(data: Dictionary) -> bool:
