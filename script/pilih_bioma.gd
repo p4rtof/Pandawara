@@ -4,7 +4,8 @@ const BIOMA = [
 	{
 		"nama": "HULU",
 		"gambar": "res://asset/bg_sungai.png",
-		"kunci_poin": 20,
+		"kunci_dari_bioma": -1,
+		"kunci_poin": 0,
 		"warna": Color("#4fc3f7"),
 		"warna_gelap": Color("#0288d1"),
 		"info": ["Tidak ada sampah", "Ikan jinak", "Tidak ada buaya"],
@@ -13,19 +14,21 @@ const BIOMA = [
 	{
 		"nama": "PERTENGAHAN",
 		"gambar": "res://asset/bg_blur.png",
+		"kunci_dari_bioma": 0,
 		"kunci_poin": 100,
 		"warna": Color("#a5d6a7"),
 		"warna_gelap": Color("#388e3c"),
-		"info": [],
+		"info": ["Ada sedikit sampah", "Ikan lebih waspada"],
 		"index": 1
 	},
 	{
 		"nama": "PERKOTAAN",
 		"gambar": "res://asset/bg_pantai.png",
-		"kunci_poin": 300,
+		"kunci_dari_bioma": 1,
+		"kunci_poin": 200,
 		"warna": Color("#ffcc80"),
 		"warna_gelap": Color("#e65100"),
-		"info": [],
+		"info": ["Banyak sampah", "Ikan agresif", "Hati-hati buaya"],
 		"index": 2
 	}
 ]
@@ -39,11 +42,16 @@ func _ready():
 
 func _buat_semua_kartu():
 	for data in BIOMA:
-		var kartu = _buat_kartu(data)
-		hbox.add_child(kartu)
+		hbox.add_child(_buat_kartu(data))
+
+func _cek_terkunci(data: Dictionary) -> bool:
+	if data["kunci_dari_bioma"] == -1:
+		return false  # Hulu selalu terbuka
+	var poin_bioma_syarat = Global.poin_per_bioma[data["kunci_dari_bioma"]]
+	return poin_bioma_syarat < data["kunci_poin"]
 
 func _buat_kartu(data: Dictionary) -> Control:
-	var terkunci = Global.poin < data["kunci_poin"]
+	var terkunci = _cek_terkunci(data)
 
 	# Panel utama
 	var panel = PanelContainer.new()
@@ -82,7 +90,7 @@ func _buat_kartu(data: Dictionary) -> Control:
 	img.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	gambar_cont.add_child(img)
 
-	# Icon gembok jika terkunci
+	# Gembok jika terkunci
 	if terkunci:
 		var gembok = Label.new()
 		gembok.text = "🔒"
@@ -92,7 +100,7 @@ func _buat_kartu(data: Dictionary) -> Control:
 		gembok.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		gambar_cont.add_child(gembok)
 
-	# Info tingkat sampah
+	# Info panel
 	var info_panel = PanelContainer.new()
 	var info_style = StyleBoxFlat.new()
 	info_style.bg_color = Color(1, 1, 1, 0.3)
@@ -109,8 +117,9 @@ func _buat_kartu(data: Dictionary) -> Control:
 	info_vbox.add_child(tingkat_label)
 
 	if terkunci:
+		var nama_syarat = BIOMA[data["kunci_dari_bioma"]]["nama"]
 		var locked_label = Label.new()
-		locked_label.text = "Informasi terbuka saat\n%d poin terkumpul" % data["kunci_poin"]
+		locked_label.text = "Kumpulkan %d poin\ndi bioma %s dulu!" % [data["kunci_poin"], nama_syarat]
 		locked_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		locked_label.add_theme_font_size_override("font_size", 11)
 		info_vbox.add_child(locked_label)
@@ -125,6 +134,7 @@ func _buat_kartu(data: Dictionary) -> Control:
 	var tombol = Button.new()
 	tombol.custom_minimum_size = Vector2(240, 45)
 	var tombol_style = StyleBoxFlat.new()
+	tombol_style.set_corner_radius_all(20)
 
 	if terkunci:
 		tombol.text = "Terkunci"
@@ -136,7 +146,6 @@ func _buat_kartu(data: Dictionary) -> Control:
 		var idx = data["index"]
 		tombol.pressed.connect(func(): _pilih_bioma(idx))
 
-	tombol_style.set_corner_radius_all(20)
 	tombol.add_theme_stylebox_override("normal", tombol_style)
 	tombol.add_theme_color_override("font_color", Color.WHITE)
 	tombol.add_theme_font_size_override("font_size", 16)

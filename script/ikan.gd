@@ -78,6 +78,7 @@ func _on_area_entered(_area: Area2D) -> void:
 		
 		if adalah_sapu_sapu:
 			Global.poin += poin_tangkap
+			Global.poin_per_bioma[Global.bioma_dipilih] += poin_tangkap
 			print("✅ Poin: +", poin_tangkap, " Total: ", Global.poin)
 		else:
 			if Global.nyawa > 0:
