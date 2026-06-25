@@ -39,6 +39,7 @@ offset_top = 199.52173
 offset_right = 387.0558
 offset_bottom = 306.72745
 theme_override_colors/font_color = Color(0.65764004, 0, 0.1615921, 1)
+text = "Kembali"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1711081329]
 layout_mode = 1

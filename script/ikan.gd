@@ -30,8 +30,8 @@ func _process(delta):
 	timer_ganti_arah -= delta
 	if timer_ganti_arah <= 0:
 		_ganti_arah()
-	if position.x > 1150:
-		position.x = 1150
+	if position.x > 1000:
+		position.x = 1000
 		_ganti_arah()
 	elif position.x < 350:
 		position.x = 350

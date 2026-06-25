@@ -6,20 +6,19 @@ const SPEED = 300.0
 @onready var jaring_kiri = $Jaring/JaringKiri
 @onready var sprite = $Sprite2D
 
-# ← SESUAIKAN angka ini dengan lebar sungai di gambarmu!
-# PERHATIKAN! Karena posisi minus, kiri lebih kecil dari kanan
-const BATAS_KIRI = -200.0   # Batas daratan kiri
-const BATAS_KANAN = 1150.0 # Batas daratan kanan
+const BATAS_KIRI = 350.0    # ← sesuaikan angka ini
+const BATAS_KANAN = 1000.0  # ← sesuaikan angka ini
+
+var batas_atas = -999999.0
+var batas_bawah = 999999.0
 
 func _ready():
 	jaring_kanan.disabled = true
 	jaring_kiri.disabled = true
 
 func _physics_process(_delta):
-	#/print("X: ", position.x)
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = input_dir * SPEED
-	
 
 	if input_dir.x > 0:
 		sprite.flip_h = false
@@ -29,12 +28,8 @@ func _physics_process(_delta):
 		sprite.flip_h = true
 		jaring_kanan.disabled = true
 		jaring_kiri.disabled = false
-	#else:
-		#jaring_kanan.disabled = true
-		#jaring_kiri.disabled = true
 
 	move_and_slide()
 	
-	# Batasi posisi player di area sungai
-	#position.x = clamp(position.x, BATAS_KIRI, BATAS_KANAN)
-	
+	position.x = clamp(position.x, BATAS_KIRI, BATAS_KANAN)  # ← uncomment, player mentok kiri-kanan
+	position.y = clamp(position.y, batas_atas, batas_bawah)
