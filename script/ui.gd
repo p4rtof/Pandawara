@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@onready var poin_label = $PoinLabel
+@onready var point_label  = $PoinLabel/Point
+@onready var target_label = $PoinLabel/Target
 @onready var hati1 = $Hati1
 @onready var hati2 = $Hati2
 @onready var hati3 = $Hati3
@@ -15,7 +16,8 @@ func _ready():
 	album_button.pressed.connect(_buka_album)
 
 func _process(_delta):
-	poin_label.text = "Poin: " + str(Global.poin)
+	point_label.text  = str(Global.poin)
+	target_label.text = "%d/%d" % [Global.sapu_sapu_ditangkap, Global.target_sapu_sapu]
 	hati1.visible = Global.nyawa >= 1
 	hati2.visible = Global.nyawa >= 2
 	hati3.visible = Global.nyawa >= 3

@@ -13,7 +13,7 @@ func _ready():
 func _on_restart_pressed():
 	# Reset semua data
 	Global.poin = 0
-	Global.nyawa = 3
+	Global.nyawa = 5
 	Global.album_koleksi.clear()
 	
 	# Balik ke game

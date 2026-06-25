@@ -50,18 +50,15 @@ func _ganti_arah():
 	timer_ganti_arah = randf_range(2.0, 4.0)
 
 func _cek_dan_tambah_album(data: Dictionary) -> bool:
-	# Return true kalau ikan BARU (belum ada di album)
 	for item in Global.album_koleksi:
 		if item["nama"] == data["nama"]:
-			return false  # sudah ada
+			return false
 	Global.album_koleksi.append(data)
-	return true  # baru!
+	return true
 
 func _tampilkan_popup(data: Dictionary):
-	# Tampilkan popup di atas UI
 	var ui = get_tree().get_first_node_in_group("ui_layer")
 	if ui == null:
-		# Fallback: cari CanvasLayer
 		ui = get_tree().current_scene
 	var popup = popup_scene.instantiate()
 	ui.add_child(popup)
@@ -71,15 +68,23 @@ func _on_area_entered(_area: Area2D) -> void:
 	if _area.is_in_group("jaring"):
 		var data = _get_data()
 		var adalah_baru = _cek_dan_tambah_album(data)
-		
-		# Kalau ikan baru → tampilkan popup!
+
 		if adalah_baru:
 			_tampilkan_popup(data)
-		
+
 		if adalah_sapu_sapu:
 			Global.poin += poin_tangkap
 			Global.poin_per_bioma[Global.bioma_dipilih] += poin_tangkap
-			print("✅ Poin: +", poin_tangkap, " Total: ", Global.poin)
+			Global.sapu_sapu_ditangkap += 1
+			print("✅ Sapu-sapu %d/%d | +%d poin | Total: %d" % [
+				Global.sapu_sapu_ditangkap,
+				Global.target_sapu_sapu,
+				poin_tangkap,
+				Global.poin
+			])
+			if Global.sapu_sapu_ditangkap >= Global.target_sapu_sapu:
+				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
+				return
 		else:
 			if Global.nyawa > 0:
 				Global.nyawa -= 1
@@ -87,6 +92,7 @@ func _on_area_entered(_area: Area2D) -> void:
 			if Global.nyawa <= 0:
 				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
 				return
+
 		call_deferred("queue_free")
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -114,5 +120,5 @@ func _get_data() -> Dictionary:
 		"deskripsi": deskripsi,
 		"adalah_sapu_sapu": adalah_sapu_sapu,
 		"texture": texture_ikan,
-		"kelangkaan": kelangkaan 
+		"kelangkaan": kelangkaan
 	}
