@@ -7,9 +7,11 @@ var bioma_dipilih = 0
 var poin_per_bioma = [0, 0, 0]
 
 var sapu_sapu_ditangkap: int = 0
-var target_sapu_sapu_per_bioma: Array = [5, 15, 20]  # HULU, PERTENGAHAN, PERKOTAAN
-var target_sapu_sapu: int = 5
+var target_sapu_sapu_per_bioma: Array = [10, 15, 20]
+var target_sapu_sapu: int = 10
 var sedang_game_over: bool = false
+
+var bioma_terbuka: int = 0   # ← BARU: bioma tertinggi yang sudah terbuka (0 = cuma DESA)
 
 func reset_game():
 	poin = 0
@@ -19,10 +21,8 @@ func reset_game():
 	bioma_dipilih = 0
 	sedang_game_over = false
 	target_sapu_sapu = target_sapu_sapu_per_bioma[0]
+	# bioma_terbuka SENGAJA tidak di-reset, biar progress unlock bioma tetap kesimpen
 
-func lanjut_ke_bioma_berikutnya():
-	bioma_dipilih += 1
-	sapu_sapu_ditangkap = 0
-	nyawa = 5
-	sedang_game_over = false
-	target_sapu_sapu = target_sapu_sapu_per_bioma[bioma_dipilih]
+func buka_bioma_berikutnya():
+	if bioma_dipilih + 1 > bioma_terbuka:
+		bioma_terbuka = bioma_dipilih + 1

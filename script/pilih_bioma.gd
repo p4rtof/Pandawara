@@ -45,10 +45,7 @@ func _buat_semua_kartu():
 		hbox.add_child(_buat_kartu(data))
 
 func _cek_terkunci(data: Dictionary) -> bool:
-	if data["kunci_dari_bioma"] == -1:
-		return false  # Hulu selalu terbuka
-	var poin_bioma_syarat = Global.poin_per_bioma[data["kunci_dari_bioma"]]
-	return poin_bioma_syarat < data["kunci_poin"]
+	return data["index"] > Global.bioma_terbuka
 
 func _buat_kartu(data: Dictionary) -> Control:
 	var terkunci = _cek_terkunci(data)
@@ -155,4 +152,8 @@ func _buat_kartu(data: Dictionary) -> Control:
 
 func _pilih_bioma(index: int):
 	Global.bioma_dipilih = index
+	Global.sapu_sapu_ditangkap = 0
+	Global.nyawa = 5
+	Global.sedang_game_over = false
+	Global.target_sapu_sapu = Global.target_sapu_sapu_per_bioma[index]
 	get_tree().change_scene_to_file("res://scene/game_sungai.tscn")

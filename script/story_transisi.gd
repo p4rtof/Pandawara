@@ -44,8 +44,8 @@ func _tampilkan(i: int):
 func _on_lanjut():
 	index += 1
 	if index >= gambar_sekarang.size():
-		Global.lanjut_ke_bioma_berikutnya()
-		get_tree().change_scene_to_file("res://scene/game_sungai.tscn")
+		Global.buka_bioma_berikutnya()
+		get_tree().change_scene_to_file("res://scene/pilih_bioma.tscn")
 	else:
 		_tampilkan(index)
 

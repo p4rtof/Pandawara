@@ -1,20 +1,23 @@
 extends Control
 
 func _ready():
+	$BackButton.pressed.connect(_on_back)
+	
 	# Suara slider
-	$Panel/SuaraSlider.value = AudioServer.get_bus_volume_db(
+	$SuaraSlider.min_value = -40
+	$SuaraSlider.max_value = 0
+	$SuaraSlider.value = AudioServer.get_bus_volume_db(
 		AudioServer.get_bus_index("Master")
 	)
-	$Panel/SuaraSlider.value_changed.connect(_on_suara_changed)
+	$SuaraSlider.value_changed.connect(_on_suara_changed)
 	
 	# Musik slider
-	$Panel/MusikSlider.value = AudioServer.get_bus_volume_db(
+	$MusikSlider.min_value = -40
+	$MusikSlider.max_value = 0
+	$MusikSlider.value = AudioServer.get_bus_volume_db(
 		AudioServer.get_bus_index("Music")
 	)
-	$Panel/MusikSlider.value_changed.connect(_on_musik_changed)
-	
-	# Tombol kembali
-	$BackButton.pressed.connect(_on_back)
+	$MusikSlider.value_changed.connect(_on_musik_changed)
 
 func _on_suara_changed(value: float):
 	AudioServer.set_bus_volume_db(

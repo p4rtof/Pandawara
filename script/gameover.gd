@@ -17,4 +17,4 @@ func _on_restart_pressed():
 	Global.target_sapu_sapu = Global.target_sapu_sapu_per_bioma[Global.bioma_dipilih]  # ← jaga2 kalau target per bioma beda
 
 	# Balik ke bioma yang sama (Global.bioma_dipilih TIDAK direset, jadi tetap di bioma yang sama)
-	get_tree().change_scene_to_file("res://scene/game_sungai.tscn")
+	get_tree().change_scene_to_file("res://scene/game_sungai.tscn")  
