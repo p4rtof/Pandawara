@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://camy2jk6iahci"]
 
 [ext_resource type="Script" uid="uid://b7vtgnyu1idf6" path="res://script/game.gd" id="1_35kdq"]
-[ext_resource type="PackedScene" uid="uid://c68twrc5gy1g8" path="res://scene/ikan.tscn" id="2_2gvfr"]
 [ext_resource type="PackedScene" uid="uid://cpbmki7ftf5qj" path="res://scene/mujair.tscn" id="2_ad5km"]
 [ext_resource type="PackedScene" uid="uid://dk6y6ww404fbc" path="res://scene/ikan_mas.tscn" id="3_841pt"]
 [ext_resource type="PackedScene" uid="uid://daps3mh3s4gek" path="res://scene/sapu_sapu.tscn" id="3_ad5km"]
@@ -20,9 +19,8 @@ mas_scene = ExtResource("3_841pt")
 mujair_scene = ExtResource("2_ad5km")
 sapu_sapu_albino_scene = ExtResource("5_2v02c")
 
-[node name="Ikan" parent="." unique_id=854384470 instance=ExtResource("2_2gvfr")]
-
 [node name="Ikan2" parent="." unique_id=2015344782 instance=ExtResource("3_ad5km")]
+visible = false
 
 [node name="Player" parent="." unique_id=952140070 instance=ExtResource("4_cjpnc")]
 z_index = 5
@@ -69,7 +67,7 @@ offset_left = 1067.0
 offset_top = 24.999998
 offset_right = 1292.0
 offset_bottom = 250.0
-scale = Vector2(0.17573284, 0.19098508)
+scale = Vector2(0.19592376, 0.19098508)
 texture = ExtResource("6_hlnvp")
 
 [node name="Hati2" type="TextureRect" parent="UI" unique_id=1382022387]
@@ -77,7 +75,7 @@ offset_left = 1013.0
 offset_top = 25.0
 offset_right = 1238.0
 offset_bottom = 250.0
-scale = Vector2(0.17573284, 0.19098508)
+scale = Vector2(0.19592376, 0.19098508)
 texture = ExtResource("6_hlnvp")
 
 [node name="Hati3" type="TextureRect" parent="UI" unique_id=1970191767]
@@ -85,22 +83,22 @@ offset_left = 961.0
 offset_top = 24.000015
 offset_right = 1186.0
 offset_bottom = 249.00002
-scale = Vector2(0.18006131, 0.18542334)
+scale = Vector2(0.20074958, 0.18542334)
 texture = ExtResource("6_hlnvp")
 
 [node name="Hati4" type="TextureRect" parent="UI" unique_id=207709721]
 offset_left = 908.00006
 offset_top = 25.000015
-offset_right = 1133.0
+offset_right = 1169.022
 offset_bottom = 250.00002
 scale = Vector2(0.18006131, 0.18542334)
 texture = ExtResource("6_hlnvp")
 
 [node name="Hati5" type="TextureRect" parent="UI" unique_id=74461485]
-offset_left = 859.0
-offset_top = 24.000015
-offset_right = 1084.0
-offset_bottom = 249.00002
+offset_left = 853.00006
+offset_top = 24.000002
+offset_right = 1108.4688
+offset_bottom = 249.0
 scale = Vector2(0.18006131, 0.18542334)
 texture = ExtResource("6_hlnvp")
 
@@ -112,13 +110,12 @@ offset_right = 875.0
 offset_bottom = 343.0
 text = "📖 Album"
 
-[node name="PauseButton" type="Button" parent="UI" unique_id=1931481583]
+[node name="PauseButton" type="TextureButton" parent="UI" unique_id=1804983404]
 offset_left = 39.000004
 offset_top = 20.0
 offset_right = 185.0
 offset_bottom = 150.0
 scale = Vector2(0.5363736, 0.5461687)
-icon = ExtResource("7_35kdq")
-flat = true
+texture_normal = ExtResource("7_35kdq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

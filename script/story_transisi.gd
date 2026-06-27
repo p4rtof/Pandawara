@@ -16,6 +16,11 @@ var gambar_transisi = {
 	1: [  # selesai dari PERTENGAHAN → mau ke PERKOTAAN
 		"res://asset/story/transisi_tengah_1.png",
 		"res://asset/story/transisi_tengah_2.png",
+		"res://asset/story/transisi_tengah_3.png",
+		"res://asset/story/transisi_tengah_4.png",
+		"res://asset/story/transisi_tengah_5.png",
+		"res://asset/story/transisi_tengah_6.png",
+		"res://asset/story/transisi_tengah_7.png",
 	],
 }
 

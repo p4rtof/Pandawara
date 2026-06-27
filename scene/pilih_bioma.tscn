@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://cod4cj6le5wio" path="res://script/pilih_bioma.gd" id="1_2hvuv"]
 [ext_resource type="Texture2D" uid="uid://b548wrsibadp" path="res://asset/bg_blur.png" id="2_n7xy5"]
 [ext_resource type="Texture2D" uid="uid://dsbpyubxue3m0" path="res://asset/EXIT.png" id="3_5lb56"]
+[ext_resource type="Texture2D" uid="uid://3ee0mqnfakd2" path="res://asset/card_hulu.png" id="4_5r1p3"]
+[ext_resource type="Texture2D" uid="uid://chjniy5spx0qf" path="res://asset/button_hulu.png" id="5_s01fg"]
+[ext_resource type="Texture2D" uid="uid://c4dkrf5n4jtj7" path="res://asset/card_tengah.png" id="6_v6ghj"]
+[ext_resource type="Texture2D" uid="uid://bsm2y6fsywq76" path="res://asset/button_tengah.png" id="7_f7hvp"]
+[ext_resource type="Texture2D" uid="uid://ceq551ntoshq5" path="res://asset/lock_tengah.png" id="7_v6ghj"]
+[ext_resource type="Texture2D" uid="uid://cim5r10jwynqg" path="res://asset/card_kota.png" id="8_0d12n"]
+[ext_resource type="Texture2D" uid="uid://ci1qpgoo6tk00" path="res://asset/button_kota.png" id="9_538fs"]
+[ext_resource type="Texture2D" uid="uid://btrbx6ganle05" path="res://asset/lock_kota.png" id="11_f7hvp"]
 
 [node name="PilihBioma" type="Control" unique_id=203102772]
 layout_mode = 3
@@ -25,6 +33,7 @@ texture = ExtResource("2_n7xy5")
 expand_mode = 1
 
 [node name="KembaliButton" type="Button" parent="." unique_id=296467599]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -43,20 +52,93 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 3.0117095
-offset_top = 65.0
-offset_right = 3.0117188
-offset_bottom = 65.0
+offset_left = 249.9719
+offset_top = -116.0
+offset_right = 272.97192
+offset_bottom = 433.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.60477036, 0.6760841)
 theme_override_constants/separation = 40
 alignment = 1
 
 [node name="KartuHulu" type="PanelContainer" parent="HBoxContainer" unique_id=1163784724]
 layout_mode = 2
 
+[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuHulu" unique_id=1984442175]
+layout_mode = 2
+texture = ExtResource("4_5r1p3")
+
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuHulu/GambarCard" unique_id=939597119]
+layout_mode = 0
+offset_left = 81.33873
+offset_top = 457.0437
+offset_right = 446.33875
+offset_bottom = 1006.0437
+texture_normal = ExtResource("5_s01fg")
+
 [node name="KartuPertengahan" type="PanelContainer" parent="HBoxContainer" unique_id=1223791570]
 layout_mode = 2
 
+[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuPertengahan" unique_id=206346228]
+layout_mode = 2
+texture = ExtResource("6_v6ghj")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/KartuPertengahan/GambarCard" unique_id=2098766722]
+layout_mode = 0
+offset_left = 14.9734535
+offset_top = 66.55976
+offset_right = 379.97345
+offset_bottom = 615.55975
+scale = Vector2(0.91605663, 0.4260115)
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Lock" type="TextureRect" parent="HBoxContainer/KartuPertengahan/GambarCard/ColorRect" unique_id=304145320]
+layout_mode = 0
+offset_left = 122.95152
+offset_top = 154.90573
+offset_right = 248.95152
+offset_bottom = 280.90573
+scale = Vector2(1.0445985, 1.7692342)
+texture = ExtResource("7_v6ghj")
+
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuPertengahan/GambarCard" unique_id=761189116]
+layout_mode = 0
+offset_left = 81.372375
+offset_top = 460.00192
+offset_right = 446.37238
+offset_bottom = 1009.00195
+texture_normal = ExtResource("7_f7hvp")
+
 [node name="KartuPerkotaan" type="PanelContainer" parent="HBoxContainer" unique_id=75179017]
 layout_mode = 2
+
+[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuPerkotaan" unique_id=865151498]
+layout_mode = 2
+texture = ExtResource("8_0d12n")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/KartuPerkotaan/GambarCard" unique_id=1032774407]
+layout_mode = 0
+offset_left = 16.667114
+offset_top = 66.55975
+offset_right = 381.6671
+offset_bottom = 615.55975
+scale = Vector2(0.91175085, 0.42463723)
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Lock" type="TextureRect" parent="HBoxContainer/KartuPerkotaan/GambarCard/ColorRect" unique_id=1669812642]
+layout_mode = 0
+offset_left = 121.143364
+offset_top = 168.67525
+offset_right = 247.14337
+offset_bottom = 294.67526
+scale = Vector2(1.0445985, 1.7692342)
+texture = ExtResource("11_f7hvp")
+
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuPerkotaan/GambarCard" unique_id=1525539513]
+layout_mode = 0
+offset_left = 79.746216
+offset_top = 458.5228
+offset_right = 444.74622
+offset_bottom = 1007.5228
+texture_normal = ExtResource("9_538fs")
