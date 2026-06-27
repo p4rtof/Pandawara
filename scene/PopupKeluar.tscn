@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dy6mroqeym3ai"]
+
+[ext_resource type="Texture2D" uid="uid://dy2vvvu7ol1de" path="res://asset/Group 9.png" id="1_07kl2"]
+[ext_resource type="Script" uid="uid://teayeiywhpg8" path="res://popupkeluar.gd" id="1_k3gro"]
+[ext_resource type="Texture2D" uid="uid://cq8ff38keluyu" path="res://asset/Ellipse 8.png" id="2_1iecm"]
+[ext_resource type="Texture2D" uid="uid://l76uv3c5gh5g" path="res://asset/!.png" id="3_7et0n"]
+[ext_resource type="Texture2D" uid="uid://cluuy1071lrn2" path="res://asset/Rectangle 14 (1).png" id="4_h0bc1"]
+[ext_resource type="Texture2D" uid="uid://bfp8vp3ct4ing" path="res://asset/Rectangle 28.png" id="5_y0b86"]
+
+[node name="PopupKeluar" type="Control" unique_id=1552145194]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k3gro")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=476271013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="DialogBox" type="Control" parent="." unique_id=392741752]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BgKrem" type="TextureRect" parent="DialogBox" unique_id=838042931]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 400.0
+texture = ExtResource("1_07kl2")
+expand_mode = 1
+
+[node name="BulatKuning" type="TextureRect" parent="DialogBox" unique_id=1674290978]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 18.0
+offset_right = 326.0
+offset_bottom = 158.0
+texture = ExtResource("2_1iecm")
+expand_mode = 1
+
+[node name="TandaSeru" type="TextureRect" parent="DialogBox" unique_id=1158129709]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 28.0
+offset_right = 270.0
+offset_bottom = 139.0
+texture = ExtResource("3_7et0n")
+expand_mode = 1
+
+[node name="Yakin" type="Label" parent="DialogBox" unique_id=1354478052]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -29.0
+offset_right = 299.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+theme_override_font_sizes/font_size = 32
+text = "YAKIN INGIN KELUAR?"
+
+[node name="Kemajuan" type="Label" parent="DialogBox" unique_id=166985496]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 224.0
+offset_right = 417.0
+offset_bottom = 304.0
+theme_override_colors/font_color = Color(0.2901961, 0.2901961, 0.2901961, 1)
+theme_override_font_sizes/font_size = 22
+text = "Kemajuan yang belum 
+disimpan akan hilang"
+horizontal_alignment = 1
+
+[node name="tombolBatal" type="TextureButton" parent="DialogBox" unique_id=798100952]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 309.0
+offset_right = 218.0
+offset_bottom = 384.0
+texture_normal = ExtResource("4_h0bc1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextBatal" type="Label" parent="DialogBox/tombolBatal" unique_id=2055098870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = 12.0
+offset_right = 58.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Batal"
+
+[node name="tombolKeluar" type="TextureButton" parent="DialogBox" unique_id=1414167403]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 309.0
+offset_right = 475.0
+offset_bottom = 384.0
+texture_normal = ExtResource("5_y0b86")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextKeluar" type="Label" parent="DialogBox/tombolKeluar" unique_id=1360909293]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 14.0
+offset_right = 55.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Keluar"
