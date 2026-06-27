@@ -62,9 +62,11 @@ height = 262.02136
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
 rotation = 1.5707964
-scale = Vector2(0.5, 0.4976186)
+scale = Vector2(0.5, 0.5118282)
 collision_mask = 3
 script = ExtResource("1_ncybc")
+nama_ikan = "Ikan sapu sapu biasa"
+deskripsi = "Ikan sapu sapu biasa"
 adalah_sapu_sapu = true
 texture_ikan = ExtResource("2_vm3ti")
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://camy2jk6iahci"]
 
 [ext_resource type="Script" uid="uid://b7vtgnyu1idf6" path="res://script/game.gd" id="1_35kdq"]
-[ext_resource type="PackedScene" uid="uid://c68twrc5gy1g8" path="res://scene/ikan.tscn" id="2_2gvfr"]
+[ext_resource type="PackedScene" uid="uid://cpbmki7ftf5qj" path="res://scene/mujair.tscn" id="2_ad5km"]
 [ext_resource type="PackedScene" uid="uid://daps3mh3s4gek" path="res://scene/sapu_sapu.tscn" id="3_ad5km"]
 [ext_resource type="PackedScene" uid="uid://c72diyxp8dws4" path="res://scene/player.tscn" id="4_cjpnc"]
 [ext_resource type="Texture2D" uid="uid://b7bkrsn5yugwi" path="res://asset/papanSkor.png" id="6_2gvfr"]
@@ -10,30 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://di76uorfuodua" path="res://asset/pause.png" id="7_35kdq"]
 
 [node name="game_sungai" type="Node2D" unique_id=1041822859]
+scale = Vector2(1, 1.0252032)
 script = ExtResource("1_35kdq")
-ikan_scene = ExtResource("2_2gvfr")
+ikan_scene = ExtResource("2_ad5km")
 sapu_sapu_scene = ExtResource("3_ad5km")
 
 [node name="Player" parent="." unique_id=952140070 instance=ExtResource("4_cjpnc")]
 z_index = 5
-
-[node name="Ikan" parent="." unique_id=854384470 instance=ExtResource("2_2gvfr")]
-visible = false
-position = Vector2(299.31757, 691.48816)
-rotation = 1.567801
-scale = Vector2(0.3679266, 0.3735085)
-
-[node name="Ikan2" parent="." unique_id=323085991 instance=ExtResource("2_2gvfr")]
-visible = false
-position = Vector2(889.9496, 598.4341)
-rotation = 1.567801
-scale = Vector2(0.3679266, 0.3735085)
-
-[node name="Ikan3" parent="." unique_id=1811026928 instance=ExtResource("2_2gvfr")]
-visible = false
-position = Vector2(204.88043, 381.83514)
-rotation = 1.567801
-scale = Vector2(0.3679266, 0.3735085)
 
 [node name="Timer" type="Timer" parent="." unique_id=1032016073]
 wait_time = 1.5

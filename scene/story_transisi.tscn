@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ch2cyiuf6icax"]
+
+[ext_resource type="Script" uid="uid://ds3urjko5xuxt" path="res://script/story_transisi.gd" id="1_13daj"]
+[ext_resource type="Texture2D" uid="uid://c4wa3kcjtgqup" path="res://asset/story/story1.png" id="2_887d1"]
+
+[node name="StoryTransisi" type="Control" unique_id=238379891]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_13daj")
+
+[node name="Background" type="TextureRect" parent="." unique_id=520381222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_887d1")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LanjutButton" type="Button" parent="." unique_id=54221740]
+layout_mode = 0
+offset_left = 139.00002
+offset_top = 521.0
+offset_right = 298.0
+offset_bottom = 574.0
+scale = Vector2(0.7445389, 0.6600989)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Lanjut"
+
+[node name="KembaliButton" type="Button" parent="." unique_id=335948070]
+layout_mode = 0
+offset_left = 24.000015
+offset_top = 523.0
+offset_right = 158.00002
+offset_bottom = 576.0
+scale = Vector2(0.8004679, 0.6609405)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Kembali"
+
+[node name="PreeSpace" type="Label" parent="." unique_id=615043932]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 590.0
+offset_right = 576.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "tekan SPACE untuk melanjutkan ...."
+horizontal_alignment = 1
+vertical_alignment = 1

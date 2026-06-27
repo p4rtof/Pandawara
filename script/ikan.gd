@@ -72,6 +72,10 @@ func _on_area_entered(_area: Area2D) -> void:
 		if adalah_baru:
 			_tampilkan_popup(data)
 
+		if Global.sedang_game_over:
+			call_deferred("queue_free")
+			return
+
 		if adalah_sapu_sapu:
 			Global.poin += poin_tangkap
 			Global.poin_per_bioma[Global.bioma_dipilih] += poin_tangkap
@@ -82,14 +86,19 @@ func _on_area_entered(_area: Area2D) -> void:
 				poin_tangkap,
 				Global.poin
 			])
-			if Global.sapu_sapu_ditangkap >= Global.target_sapu_sapu:
-				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
+			if Global.sapu_sapu_ditangkap >= Global.target_sapu_sapu and not Global.sedang_game_over:
+				Global.sedang_game_over = true
+				if Global.bioma_dipilih < 2:  # belum bioma terakhir (PERKOTAAN = index 2)
+					get_tree().call_deferred("change_scene_to_file", "res://scene/story_transisi.tscn")
+				else:
+					get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
 				return
 		else:
 			if Global.nyawa > 0:
 				Global.nyawa -= 1
 				print("❌ Nyawa: ", Global.nyawa)
-			if Global.nyawa <= 0:
+			if Global.nyawa <= 0 and not Global.sedang_game_over:
+				Global.sedang_game_over = true
 				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
 				return
 
