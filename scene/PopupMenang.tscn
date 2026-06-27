@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://x6nni5r15tfp"]
+
+[ext_resource type="Script" uid="uid://dqs3d7bslc8t4" path="res://script/PopupMenang.gd" id="1_y4fy4"]
+[ext_resource type="Texture2D" uid="uid://cyqe6eu1mmhlb" path="res://asset/menang.png" id="2_5gbyg"]
+[ext_resource type="Texture2D" uid="uid://cagmgoe63jyvm" path="res://asset/menu_button.png" id="3_ymquc"]
+[ext_resource type="Texture2D" uid="uid://cqf5i20s3aevj" path="res://asset/lanjut_button.png" id="4_ew0gu"]
+
+[node name="PopupMenang" type="Control" unique_id=2089785684]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4fy4")
+
+[node name="DimBackground" type="ColorRect" parent="." unique_id=1434275139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -730.0
+offset_top = -358.0
+offset_right = -690.0
+offset_bottom = -318.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(36.71516, 17.809484)
+color = Color(0, 0, 0, 0.20392157)
+
+[node name="CardImage" type="TextureRect" parent="." unique_id=688378621]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.0
+offset_top = -277.0
+offset_right = 989.0
+offset_bottom = 506.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.70522296, 0.7199885)
+texture = ExtResource("2_5gbyg")
+
+[node name="MenuButton" type="TextureButton" parent="CardImage" unique_id=1649781895]
+layout_mode = 0
+offset_left = 677.0908
+offset_top = 543.75867
+offset_right = 945.0908
+offset_bottom = 625.75867
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("3_ymquc")
+
+[node name="LanjutButton" type="TextureButton" parent="CardImage" unique_id=750856510]
+layout_mode = 0
+offset_left = 403.4185
+offset_top = 543.7586
+offset_right = 671.41846
+offset_bottom = 625.7586
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_ew0gu")
+
+[node name="TargetLabel" type="Label" parent="CardImage" unique_id=861840179]
+layout_mode = 0
+offset_left = 671.4188
+offset_top = 459.0351
+offset_right = 730.4188
+offset_bottom = 490.0351
+scale = Vector2(1.2670777, 1.0276988)
+theme_override_colors/font_color = Color(0.3137255, 0.1882353, 0.07058824, 1)
+theme_override_font_sizes/font_size = 22
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkorLabel" type="Label" parent="CardImage" unique_id=410598901]
+layout_mode = 0
+offset_left = 586.3395
+offset_top = 329.86633
+offset_right = 792.3395
+offset_bottom = 494.86633
+scale = Vector2(0.60567343, 0.39959615)
+theme_override_colors/font_color = Color(0.3137255, 0.1882353, 0.07058824, 1)
+theme_override_font_sizes/font_size = 120
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

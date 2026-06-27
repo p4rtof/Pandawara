@@ -1,8 +1,8 @@
 extends Control
 
-@onready var resume_button = $Panel/ResumeButton
-@onready var main_menu_button = $Panel/MainMenuButton
-@onready var tutorial_button = $Panel/TutorialButton
+@onready var resume_button = $Pause/ResumeButton
+@onready var main_menu_button = $Pause/MainMenuButton
+@onready var tutorial_button = $Pause/TutorialButton
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS 

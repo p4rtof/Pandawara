@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dxt3t4osimxlp" path="res://asset/Rectangle 15.png" id="3_g2to7"]
 [ext_resource type="Texture2D" uid="uid://cqjp5jfd8gpo4" path="res://asset/Rectangle 18.png" id="4_2wb80"]
 [ext_resource type="Texture2D" uid="uid://b8br4rkgln8kb" path="res://asset/back.png" id="5_123qk"]
+[ext_resource type="Texture2D" uid="uid://c3v0pg74lwebt" path="res://asset/Kembali.png" id="6_2xxw5"]
 [ext_resource type="Texture2D" uid="uid://gs8yxij3u4y7" path="res://asset/Mask group (1).png" id="6_8pksm"]
 [ext_resource type="Texture2D" uid="uid://uilyrpyorwo1" path="res://asset/Group 15.png" id="7_fhdrf"]
 [ext_resource type="Texture2D" uid="uid://u1g4abc04c17" path="res://asset/Group 14.png" id="8_7piks"]
@@ -77,6 +78,15 @@ offset_right = 120.0
 offset_bottom = 113.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_123qk")
+
+[node name="Kembali" type="TextureRect" parent="BackButton" unique_id=1902593583]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 22.0
+offset_right = 277.0
+offset_bottom = 62.0
+scale = Vector2(1.1190255, 1.163125)
+texture = ExtResource("6_2xxw5")
 
 [node name="IconPengaturan" type="TextureRect" parent="." unique_id=1651439486]
 layout_mode = 0

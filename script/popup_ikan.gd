@@ -1,28 +1,28 @@
 extends Control
 
-@onready var gambar_ikan = $PanelContainer/VBox/GambarIkan
-@onready var nama_label = $PanelContainer/VBox/NamaLabel
-@onready var deskripsi_label = $PanelContainer/VBox/DeskripsiLabel
+@onready var card_background = $CardBackground
+
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func tampilkan(data: Dictionary):
-	nama_label.text = data["nama"]
-	deskripsi_label.text = data["deskripsi"]
-	
-	if data.has("texture") and data["texture"] != null:
-		gambar_ikan.texture = data["texture"]
-		# Paksa ukuran gambar tidak melar!
-		gambar_ikan.custom_minimum_size = Vector2(120, 120)
-	
-	# Paksa ukuran panel
-	$PanelContainer.size = Vector2(400, 300)
-	
-	# Posisi tengah layar
+	if data.has("texture_popup") and data["texture_popup"] != null:
+		card_background.texture = data["texture_popup"]
+
 	set_anchors_preset(Control.PRESET_CENTER)
-	
-	# Fade in
+
+	get_tree().paused = true   # ← game pause selama popup muncul
+
 	modulate.a = 0.0
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 0.3)
-	tween.tween_interval(3.0)
-	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+
+func _input(event):
+	if event.is_action_pressed("ui_select"):  # tombol SPACE
+		_tutup()
+
+func _tutup():
+	get_tree().paused = false   # ← lanjut main lagi
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(queue_free)

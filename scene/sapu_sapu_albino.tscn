@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_406x7"]
 [ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/sapu_sapu_albino.png" id="2_406x7"]
 [ext_resource type="Texture2D" uid="uid://21e38fdqf6c0" path="res://asset/Ikan animation.png" id="3_bjt2q"]
+[ext_resource type="Texture2D" uid="uid://bjg3seu16cq6b" path="res://asset/popup_sapu_albino.png" id="3_y3rba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_curac"]
 atlas = ExtResource("3_bjt2q")
@@ -70,6 +71,7 @@ deskripsi = "Ikan sapu sapu Albino"
 adalah_sapu_sapu = true
 poin_tangkap = 20
 texture_ikan = ExtResource("2_406x7")
+texture_popup = ExtResource("3_y3rba")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=736414504]
 visible = false

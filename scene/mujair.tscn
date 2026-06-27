@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_is07i"]
 [ext_resource type="Texture2D" uid="uid://dduxvyfh72ubu" path="res://asset/mujair.png" id="3_is07i"]
+[ext_resource type="Texture2D" uid="uid://bc2aj31m556hr" path="res://asset/mujair_popup.png" id="3_wc87t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 42.869667
@@ -15,6 +16,7 @@ script = ExtResource("1_is07i")
 nama_ikan = "Ikan Mujair"
 deskripsi = "Ikan Mujair"
 texture_ikan = ExtResource("3_is07i")
+texture_popup = ExtResource("3_wc87t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
 rotation = -0.26576364

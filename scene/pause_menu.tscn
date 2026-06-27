@@ -1,49 +1,73 @@
 [gd_scene format=3 uid="uid://3h5fo7kncr41"]
 
 [ext_resource type="Script" uid="uid://kfmk0t52xidi" path="res://script/pause_menu.gd" id="1_grdc7"]
+[ext_resource type="Texture2D" uid="uid://b6c44bpqjiwwo" path="res://asset/blur_bg.png" id="2_4q2vw"]
+[ext_resource type="Texture2D" uid="uid://wti8vnxnbnnl" path="res://asset/pause_page.png" id="3_et5lo"]
+[ext_resource type="Texture2D" uid="uid://ccpdvwtwj6ni" path="res://asset/lanjut_button_pause.png" id="4_r1gbo"]
+[ext_resource type="Texture2D" uid="uid://bgvh3jeu52xtx" path="res://asset/tutorial_button.png" id="5_71u2q"]
+[ext_resource type="Texture2D" uid="uid://ug7wpc2ly6yk" path="res://asset/menu_utama_button.png" id="6_xugnn"]
 
 [node name="PauseMenu" type="Control" unique_id=203742211]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8544045, 0.84883475)
 script = ExtResource("1_grdc7")
 
-[node name="DimBackground" type="ColorRect" parent="." unique_id=1354431782]
+[node name="DimBackground" type="TextureRect" parent="." unique_id=1015086585]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1029.0
-offset_bottom = 583.0
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 1013.0
+offset_bottom = 572.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.67625946, 0.6545661)
+texture = ExtResource("2_4q2vw")
+expand_mode = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=564337240]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Pause" type="TextureRect" parent="." unique_id=1061260140]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -301.0
+offset_right = 712.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.91330045, 1.0233654)
+texture = ExtResource("3_et5lo")
 
-[node name="ResumeButton" type="Button" parent="Panel" unique_id=344884517]
+[node name="ResumeButton" type="TextureButton" parent="Pause" unique_id=1709391104]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 90.0
-offset_right = 100.0
-offset_bottom = 121.0
-text = "Lanjutkan"
+offset_left = 307.01743
+offset_top = 258.04095
+offset_right = 729.01746
+offset_bottom = 364.04095
+texture_normal = ExtResource("4_r1gbo")
 
-[node name="MainMenuButton" type="Button" parent="Panel" unique_id=695363320]
+[node name="TutorialButton" type="TextureButton" parent="Pause" unique_id=552449338]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 167.0
-offset_right = 157.0
-offset_bottom = 198.0
-text = "Kembali Ke Menu"
+offset_left = 311.09286
+offset_top = 393.32455
+offset_right = 733.0929
+offset_bottom = 499.32455
+texture_normal = ExtResource("5_71u2q")
 
-[node name="TutorialButton" type="Button" parent="Panel" unique_id=415497652]
+[node name="MainMenuButton" type="TextureButton" parent="Pause" unique_id=583356456]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 131.0
-offset_right = 82.0
-offset_bottom = 162.0
-text = "Tutorial"
+offset_left = 308.3759
+offset_top = 523.59766
+offset_right = 730.3759
+offset_bottom = 628.59766
+texture_normal = ExtResource("6_xugnn")

@@ -1,20 +1,19 @@
 extends Area2D
-
 @export var nama_ikan: String = "Ikan Biasa"
 @export var deskripsi: String = "Ikan sungai biasa"
 @export var adalah_sapu_sapu: bool = false
 @export var poin_tangkap: int = 10
 @export var texture_ikan: Texture2D
 @export var kelangkaan: String = "Umum" 
-
+@export var texture_popup: Texture2D 
 var arah = Vector2.ZERO
 var kecepatan = 0.0
 var timer_ganti_arah = 0.0
 var sedang_ditekan = false
 var timer_tekan = 0.0
 const LAMA_TEKAN = 0.8
-
 var popup_scene = preload("res://scene/popup_ikan.tscn")
+var popup_menang_scene = preload("res://scene/PopupMenang.tscn")
 
 func _ready():
 	$Sprite2D.texture = texture_ikan
@@ -64,18 +63,23 @@ func _tampilkan_popup(data: Dictionary):
 	ui.add_child(popup)
 	popup.tampilkan(data)
 
+func _tampilkan_popup_menang():
+	get_tree().paused = true
+	var ui = get_tree().get_first_node_in_group("ui_layer")
+	if ui == null:
+		ui = get_tree().current_scene
+	var popup = popup_menang_scene.instantiate()
+	ui.add_child(popup)
+
 func _on_area_entered(_area: Area2D) -> void:
 	if _area.is_in_group("jaring"):
 		var data = _get_data()
 		var adalah_baru = _cek_dan_tambah_album(data)
-
 		if adalah_baru:
 			_tampilkan_popup(data)
-
 		if Global.sedang_game_over:
 			call_deferred("queue_free")
 			return
-
 		if adalah_sapu_sapu:
 			Global.poin += poin_tangkap
 			Global.poin_per_bioma[Global.bioma_dipilih] += poin_tangkap
@@ -88,10 +92,7 @@ func _on_area_entered(_area: Area2D) -> void:
 			])
 			if Global.sapu_sapu_ditangkap >= Global.target_sapu_sapu and not Global.sedang_game_over:
 				Global.sedang_game_over = true
-				if Global.bioma_dipilih < 2:  # belum bioma terakhir (PERKOTAAN = index 2)
-					get_tree().call_deferred("change_scene_to_file", "res://scene/story_transisi.tscn")
-				else:
-					get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
+				call_deferred("_tampilkan_popup_menang")
 				return
 		else:
 			if Global.nyawa > 0:
@@ -101,7 +102,6 @@ func _on_area_entered(_area: Area2D) -> void:
 				Global.sedang_game_over = true
 				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
 				return
-
 		call_deferred("queue_free")
 
 func _on_input_event(_viewport, event, _shape_idx):
@@ -129,5 +129,6 @@ func _get_data() -> Dictionary:
 		"deskripsi": deskripsi,
 		"adalah_sapu_sapu": adalah_sapu_sapu,
 		"texture": texture_ikan,
+		"texture_popup": texture_popup,   # ← BARU
 		"kelangkaan": kelangkaan
 	}

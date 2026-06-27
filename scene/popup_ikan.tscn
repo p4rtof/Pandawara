@@ -1,43 +1,41 @@
 [gd_scene format=3 uid="uid://c53f50j8p1gdv"]
 
 [ext_resource type="Script" uid="uid://dc3s3j2wmor1y" path="res://script/popup_ikan.gd" id="1_fbfks"]
+[ext_resource type="Texture2D" uid="uid://bc2aj31m556hr" path="res://asset/mujair_popup.png" id="2_8e0se"]
 
 [node name="PopupIkan" type="Control" unique_id=318037408]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.41034114, 0.42139888)
 script = ExtResource("1_fbfks")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1796811361]
-layout_mode = 0
-offset_left = 350.0
-offset_top = 150.0
-offset_right = 750.0
-offset_bottom = 450.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1889220887]
+layout_mode = 1
+offset_left = -1664.4686
+offset_top = -823.4479
+offset_right = -1624.4686
+offset_bottom = -783.4479
+scale = Vector2(83.37958, 42.035465)
+color = Color(0, 0, 0, 0.1254902)
 
-[node name="VBox" type="VBoxContainer" parent="PanelContainer" unique_id=128333205]
-custom_minimum_size = Vector2(380, 0)
-layout_mode = 2
-
-[node name="JudulLabel" type="Label" parent="PanelContainer/VBox" unique_id=1526621277]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "IKAN BARU DITEMUKAN!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GambarIkan" type="TextureRect" parent="PanelContainer/VBox" unique_id=1521683391]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-expand_mode = 1
-stretch_mode = 5
-
-[node name="NamaLabel" type="Label" parent="PanelContainer/VBox" unique_id=1131558300]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 1
-
-[node name="DeskripsiLabel" type="Label" parent="PanelContainer/VBox" unique_id=651452163]
-layout_mode = 2
-horizontal_alignment = 1
+[node name="CardBackground" type="TextureRect" parent="." unique_id=713457817]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -130.99998
+offset_right = -233.0
+offset_bottom = -90.999985
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.567)
+texture = ExtResource("2_8e0se")

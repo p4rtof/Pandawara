@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_ek2m8"]
 [ext_resource type="Texture2D" uid="uid://bmv1n23onse5" path="res://asset/ikan_mas.png" id="2_ek2m8"]
+[ext_resource type="Texture2D" uid="uid://c1m4jfhs2ogue" path="res://asset/popup_mas.png" id="3_ub73p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 17.947641
@@ -15,6 +16,7 @@ script = ExtResource("1_ek2m8")
 nama_ikan = "Ikan Mas"
 deskripsi = "Ikan mass"
 texture_ikan = ExtResource("2_ek2m8")
+texture_popup = ExtResource("3_ub73p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
 position = Vector2(-18, 18.086142)
