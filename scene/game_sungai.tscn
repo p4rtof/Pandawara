@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://camy2jk6iahci"]
 
 [ext_resource type="Script" uid="uid://b7vtgnyu1idf6" path="res://script/game.gd" id="1_35kdq"]
+[ext_resource type="PackedScene" uid="uid://c68twrc5gy1g8" path="res://scene/ikan.tscn" id="2_2gvfr"]
 [ext_resource type="PackedScene" uid="uid://cpbmki7ftf5qj" path="res://scene/mujair.tscn" id="2_ad5km"]
+[ext_resource type="PackedScene" uid="uid://dk6y6ww404fbc" path="res://scene/ikan_mas.tscn" id="3_841pt"]
 [ext_resource type="PackedScene" uid="uid://daps3mh3s4gek" path="res://scene/sapu_sapu.tscn" id="3_ad5km"]
 [ext_resource type="PackedScene" uid="uid://c72diyxp8dws4" path="res://scene/player.tscn" id="4_cjpnc"]
+[ext_resource type="PackedScene" uid="uid://coeu7s8sjgl63" path="res://scene/sapu_sapu_albino.tscn" id="5_2v02c"]
 [ext_resource type="Texture2D" uid="uid://b7bkrsn5yugwi" path="res://asset/papanSkor.png" id="6_2gvfr"]
 [ext_resource type="Script" uid="uid://cbcp2kut1xfpk" path="res://script/ui.gd" id="6_2v02c"]
 [ext_resource type="Texture2D" uid="uid://cf4wcvcirsbtk" path="res://asset/hati.png" id="6_hlnvp"]
@@ -12,8 +15,14 @@
 [node name="game_sungai" type="Node2D" unique_id=1041822859]
 scale = Vector2(1, 1.0252032)
 script = ExtResource("1_35kdq")
-ikan_scene = ExtResource("2_ad5km")
 sapu_sapu_scene = ExtResource("3_ad5km")
+mas_scene = ExtResource("3_841pt")
+mujair_scene = ExtResource("2_ad5km")
+sapu_sapu_albino_scene = ExtResource("5_2v02c")
+
+[node name="Ikan" parent="." unique_id=854384470 instance=ExtResource("2_2gvfr")]
+
+[node name="Ikan2" parent="." unique_id=2015344782 instance=ExtResource("3_ad5km")]
 
 [node name="Player" parent="." unique_id=952140070 instance=ExtResource("4_cjpnc")]
 z_index = 5

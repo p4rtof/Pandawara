@@ -1,15 +1,18 @@
 extends Node2D
 @export var ikan_scene: PackedScene
 @export var sapu_sapu_scene: PackedScene
+@export var mas_scene: PackedScene
+@export var mujair_scene: PackedScene
+@export var sapu_sapu_albino_scene: PackedScene
+
 var batas_ikan = 30
 var sungai_atas = 0.0
 var sungai_bawah = 0.0
 
-# Background per bioma: 0=HULU, 1=PERTENGAHAN, 2=PERKOTAAN
 var bg_per_bioma = [
 	"res://asset/bg_sungai.png",
-	"res://asset/bg_blur.png",
-	"res://asset/bg_pantai.png"
+	"res://asset/bg_tengah.png",
+	"res://asset/bg_kota.png"
 ]
 
 func _ready():
@@ -17,11 +20,9 @@ func _ready():
 	$Timer.wait_time = 2.0
 	$Timer.start()
 
-	# Pastikan target sapu-sapu sesuai bioma yang aktif
 	if Global.target_sapu_sapu_per_bioma.size() > Global.bioma_dipilih:
 		Global.target_sapu_sapu = Global.target_sapu_sapu_per_bioma[Global.bioma_dipilih]
 
-	# Buat background sesuai bioma — SATU gambar saja, TIDAK di-tile
 	var bg_path = bg_per_bioma[Global.bioma_dipilih]
 	var tex = load(bg_path)
 	var target_width = 1552.0
@@ -39,14 +40,10 @@ func _ready():
 	sungai_atas = 0.0
 	sungai_bawah = tex_h_scaled
 
-	# Player mulai di dekat atas sungai
 	$Player.position = Vector2(576, 80)
-
-	# Kasih tahu player batas geraknya (atas & bawah)
 	$Player.batas_atas = sungai_atas + 40
 	$Player.batas_bawah = sungai_bawah - 40
 
-	# Kamera dikunci sesuai ukuran sungai
 	var cam = $Player.get_node("Camera2D")
 	cam.offset = Vector2.ZERO
 	cam.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
@@ -60,13 +57,48 @@ func _ready():
 
 	_spawn_ikan_awal()
 
+# --- KOLAM IKAN PER BIOMA ---
+# format: { scene: PackedScene, bobot: float } -> bobot = peluang relatif muncul
+func _kolam_ikan() -> Array:
+	match Global.bioma_dipilih:
+		0:  # DESA / HULU — cuma sapu-sapu biasa & mujair
+			return [
+				{"scene": sapu_sapu_scene, "bobot": 0.4},
+				{"scene": mujair_scene, "bobot": 0.6},
+			]
+		1:  # PERTENGAHAN — sapu-sapu biasa + albino + mujair + mas
+			return [
+				{"scene": sapu_sapu_scene, "bobot": 0.25},
+				{"scene": sapu_sapu_albino_scene, "bobot": 0.15},
+				{"scene": mujair_scene, "bobot": 0.3},
+				{"scene": mas_scene, "bobot": 0.3},
+			]
+		_:  # PERKOTAAN — sementara disamain kayak pertengahan, ganti nanti kalau ada ikan baru lagi
+			return [
+				{"scene": sapu_sapu_scene, "bobot": 0.25},
+				{"scene": sapu_sapu_albino_scene, "bobot": 0.15},
+				{"scene": mujair_scene, "bobot": 0.3},
+				{"scene": mas_scene, "bobot": 0.3},
+			]
+
+func _ambil_ikan_acak() -> Node:
+	var kolam = _kolam_ikan()
+	var total_bobot = 0.0
+	for item in kolam:
+		total_bobot += item["bobot"]
+	
+	var pilihan = randf() * total_bobot
+	var kumulatif = 0.0
+	for item in kolam:
+		kumulatif += item["bobot"]
+		if pilihan <= kumulatif:
+			return item["scene"].instantiate()
+	
+	return kolam[0]["scene"].instantiate()  # fallback
+
 func _spawn_ikan_awal():
 	for i in range(25):
-		var ikan_baru
-		if randf() < 0.3:
-			ikan_baru = sapu_sapu_scene.instantiate()
-		else:
-			ikan_baru = ikan_scene.instantiate()
+		var ikan_baru = _ambil_ikan_acak()
 
 		ikan_baru.position = Vector2(
 			randf_range(350, 1000),
@@ -88,11 +120,7 @@ func _on_timer_timeout():
 	if ikan_sekarang.size() >= batas_ikan:
 		return
 
-	var ikan_baru
-	if randf() < 0.3:
-		ikan_baru = sapu_sapu_scene.instantiate()
-	else:
-		ikan_baru = ikan_scene.instantiate()
+	var ikan_baru = _ambil_ikan_acak()
 
 	var player_pos = $Player.position
 	var spawn_pos = Vector2.ZERO

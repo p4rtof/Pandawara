@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c68twrc5gy1g8"]
 
 [ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_26uxn"]
-[ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/ikan_nn.png" id="3_c4xmv"]
+[ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/sapu_sapu_albino.png" id="3_c4xmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
 radius = 42.869667

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://coeu7s8sjgl63"]
+
+[ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_406x7"]
+[ext_resource type="Texture2D" uid="uid://bw518jb8phdbu" path="res://asset/sapu_sapu_albino.png" id="2_406x7"]
+[ext_resource type="Texture2D" uid="uid://21e38fdqf6c0" path="res://asset/Ikan animation.png" id="3_bjt2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_curac"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(0, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa7ai"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(512, 0, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1dwy"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(0, 341, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrgkc"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(512, 341, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihpix"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(0, 682, 512, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6df7y"]
+atlas = ExtResource("3_bjt2q")
+region = Rect2(512, 682, 512, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8dx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_curac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa7ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1dwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrgkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihpix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6df7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
+radius = 31.251743
+height = 228.30602
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vm3ti"]
+
+[node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5118282)
+collision_mask = 3
+script = ExtResource("1_406x7")
+nama_ikan = "Ikan sapu sapu Albino"
+deskripsi = "Ikan sapu sapu Albino"
+adalah_sapu_sapu = true
+poin_tangkap = 20
+texture_ikan = ExtResource("2_406x7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=736414504]
+visible = false
+position = Vector2(-26, -16.076569)
+scale = Vector2(0.6875, 0.6511243)
+sprite_frames = SubResource("SpriteFrames_v8dx6")
+frame_progress = 0.123271115
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
+scale = Vector2(0.21420236, 0.21112469)
+texture = ExtResource("2_406x7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
+position = Vector2(-1.9073486e-06, -9.768904)
+rotation = 1.5471337
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_26uxn")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1359196459]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vm3ti")

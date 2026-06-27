@@ -7,7 +7,7 @@ var bioma_dipilih = 0
 var poin_per_bioma = [0, 0, 0]
 
 var sapu_sapu_ditangkap: int = 0
-var target_sapu_sapu_per_bioma: Array = [10, 15, 20]  # HULU, PERTENGAHAN, PERKOTAAN
+var target_sapu_sapu_per_bioma: Array = [5, 15, 20]  # HULU, PERTENGAHAN, PERKOTAAN
 var target_sapu_sapu: int = 5
 var sedang_game_over: bool = false
 

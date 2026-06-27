@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dk6y6ww404fbc"]
+
+[ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_ek2m8"]
+[ext_resource type="Texture2D" uid="uid://bmv1n23onse5" path="res://asset/ikan_mas.png" id="2_ek2m8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
+radius = 17.947641
+height = 127.96419
+
+[node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+collision_mask = 3
+script = ExtResource("1_ek2m8")
+nama_ikan = "Ikan Mas"
+deskripsi = "Ikan mass"
+texture_ikan = ExtResource("2_ek2m8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
+position = Vector2(-18, 18.086142)
+scale = Vector2(0.7958026, 0.97103935)
+texture = ExtResource("2_ek2m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
+position = Vector2(-23.999996, 20)
+rotation = 1.5471337
+shape = SubResource("CapsuleShape2D_26uxn")
