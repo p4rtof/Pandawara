@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw518jb8phdbu"
-path="res://.godot/imported/ikan_nn.png-5fd9c0d7c1c7df18bfc535ec0fcc9728.ctex"
+uid="uid://bqc64y2esi3fo"
+path="res://.godot/imported/BtnSapu2.png-0182b8f1e027a056fd4e50dfc3c3be20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/ikan_nn.png"
-dest_files=["res://.godot/imported/ikan_nn.png-5fd9c0d7c1c7df18bfc535ec0fcc9728.ctex"]
+source_file="res://asset/BtnSapu2.png"
+dest_files=["res://.godot/imported/BtnSapu2.png-0182b8f1e027a056fd4e50dfc3c3be20.ctex"]
 
 [params]
 

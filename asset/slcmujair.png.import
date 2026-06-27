@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw518jb8phdbu"
-path="res://.godot/imported/ikan_nn.png-5fd9c0d7c1c7df18bfc535ec0fcc9728.ctex"
+uid="uid://ld8icpytmqd8"
+path="res://.godot/imported/slcmujair.png-483964036eaf7dae6ff8c1656be1930c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/ikan_nn.png"
-dest_files=["res://.godot/imported/ikan_nn.png-5fd9c0d7c1c7df18bfc535ec0fcc9728.ctex"]
+source_file="res://asset/slcmujair.png"
+dest_files=["res://.godot/imported/slcmujair.png-483964036eaf7dae6ff8c1656be1930c.ctex"]
 
 [params]
 

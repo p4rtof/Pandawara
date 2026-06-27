@@ -100,7 +100,6 @@ scale = Vector2(0.18006131, 0.18542334)
 texture = ExtResource("6_hlnvp")
 
 [node name="AlbumButton" type="Button" parent="UI" unique_id=159305130]
-visible = false
 offset_left = 790.0
 offset_top = 312.0
 offset_right = 875.0
