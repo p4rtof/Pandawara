@@ -10,54 +10,58 @@ extends Control
 @onready var button_lele = $ScrollContainer/VBoxContainer/ButtonLele
 @onready var button_buaya = $ScrollContainer/VBoxContainer/ButtonBuaya
 
+# Map nama ikan -> button & texture
+var daftar_ikan = []
+
 func _ready():
 	tutup_button.pressed.connect(_tutup_album)
-	button_sapu2.pressed.connect(func(): card_ikan.texture = load("res://asset/album_sapu2.png"))
-	button_mujair.pressed.connect(func(): card_ikan.texture = load("res://asset/album_mujair.png"))
-	button_sapu2_albino.pressed.connect(func(): card_ikan.texture = load("res://asset/album_sapu2albino.png"))
-	button_mas.pressed.connect(func(): card_ikan.texture = load("res://asset/album_mas.png"))
-	button_sapu2_loreng.pressed.connect(func(): card_ikan.texture = load("res://asset/album_sapu2loreng.png"))
-	button_lele.pressed.connect(func(): card_ikan.texture = load("res://asset/album_lele.png"))
-	button_buaya.pressed.connect(func(): card_ikan.texture = load("res://asset/album_buaya.png"))
+
+	daftar_ikan = [
+		{"nama": "Sapu-sapu Biasa",  "button": button_sapu2,        "texture": "res://asset/album_sapu2.png"},
+		{"nama": "Mujair",           "button": button_mujair,        "texture": "res://asset/album_mujair.png"},
+		{"nama": "Sapu-sapu Albino", "button": button_sapu2_albino,  "texture": "res://asset/album_sapu2albino.png"},
+		{"nama": "Mas",              "button": button_mas,           "texture": "res://asset/album_mas.png"},
+		{"nama": "Sapu-sapu Loreng", "button": button_sapu2_loreng,  "texture": "res://asset/album_sapu2loreng.png"},
+		{"nama": "Lele",             "button": button_lele,          "texture": "res://asset/album_lele.png"},
+		{"nama": "Buaya",            "button": button_buaya,         "texture": "res://asset/album_buaya.png"},
+	]
 
 	var group = ButtonGroup.new()
-	button_sapu2.button_group = group
-	button_mujair.button_group = group
-	button_sapu2_albino.button_group = group
-	button_mas.button_group = group
-	button_sapu2_loreng.button_group = group
-	button_lele.button_group = group
-	button_buaya.button_group = group
+	for entry in daftar_ikan:
+		entry["button"].button_group = group
+		var tex_path = entry["texture"]
+		entry["button"].pressed.connect(func(): card_ikan.texture = load(tex_path))
 
-	# Semua lock dulu sebelum dicek
+	# Semua lock dulu
 	_set_semua_locked()
 
 	# Buka tombol yang sudah ditangkap
-	button_sapu2.disabled = not _sudah_ditangkap("Sapu-sapu Biasa")
-	button_mujair.disabled = not _sudah_ditangkap("Mujair")
-	button_sapu2_albino.disabled = not _sudah_ditangkap("Sapu-sapu Albino")
-	button_mas.disabled = not _sudah_ditangkap("Mas")
-	button_sapu2_loreng.disabled = not _sudah_ditangkap("Sapu-sapu Loreng")
-	button_lele.disabled = not _sudah_ditangkap("Lele")
-	button_buaya.disabled = not _sudah_ditangkap("Buaya")
+	for entry in daftar_ikan:
+		entry["button"].disabled = not _sudah_ditangkap(entry["nama"])
 
-	# Default card locked
-	card_ikan.texture = load("res://asset/album_locked.png")
+	# Otomatis tampilkan ikan pertama yang sudah ditangkap
+	var pertama = _cari_pertama_ditangkap()
+	if pertama != null:
+		card_ikan.texture = load(pertama["texture"])
+		pertama["button"].button_pressed = true
+	else:
+		card_ikan.texture = load("res://asset/album_locked.png")
 
 func _set_semua_locked():
-	button_sapu2.disabled = true
-	button_mujair.disabled = true
-	button_sapu2_albino.disabled = true
-	button_mas.disabled = true
-	button_sapu2_loreng.disabled = true
-	button_lele.disabled = true
-	button_buaya.disabled = true
+	for entry in daftar_ikan:
+		entry["button"].disabled = true
 
 func _sudah_ditangkap(nama: String) -> bool:
 	for item in Global.album_koleksi:
 		if item["nama"] == nama:
 			return true
 	return false
+
+func _cari_pertama_ditangkap():
+	for entry in daftar_ikan:
+		if _sudah_ditangkap(entry["nama"]):
+			return entry
+	return null
 
 func _tutup_album():
 	get_tree().paused = false

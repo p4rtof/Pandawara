@@ -8,7 +8,7 @@ extends Area2D
 
 const DAMAGE_NYAWA: int = 3
 const COOLDOWN_DAMAGE: float = 2.0
-const KECEPATAN_KEJAR: float = 120.0   # ← sesuaikan biar gak terlalu gampang/susah dihindari
+const KECEPATAN_KEJAR: float = 100.0   # ← sesuaikan biar gak terlalu gampang/susah dihindari
 
 var timer_cooldown_damage = 0.0
 var target_player: Node2D = null
