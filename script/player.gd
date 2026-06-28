@@ -13,6 +13,7 @@ var batas_atas = -999999.0
 var batas_bawah = 999999.0
 
 func _ready():
+	add_to_group("player") 
 	jaring_kanan.disabled = true
 	jaring_kiri.disabled = true
 

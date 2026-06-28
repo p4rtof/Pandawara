@@ -44,7 +44,7 @@ offset_right = 989.0
 offset_bottom = 506.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.70522296, 0.7199885)
+scale = Vector2(0.6731434, 0.7199885)
 texture = ExtResource("2_5gbyg")
 
 [node name="MenuButton" type="TextureButton" parent="CardImage" unique_id=1649781895]

@@ -64,27 +64,27 @@ func _ready():
 # format: { scene: PackedScene, bobot: float } -> bobot = peluang relatif muncul
 func _kolam_ikan() -> Array:
 	match Global.bioma_dipilih:
-		0:  # DESA — sapu-sapu biasa (+10), mujair (hati --)
+		0:  # DESA — sapu-sapu : mujair = 2:3
 			return [
-				{"scene": sapu_sapu_scene, "bobot": 0.40},
-				{"scene": mujair_scene,    "bobot": 0.60},
+				{"scene": sapu_sapu_scene, "bobot": 2.0},
+				{"scene": mujair_scene,    "bobot": 3.0},
 			]
-		1:  # PERTENGAHAN — albino (+20), sapu-sapu biasa (+10), mas (hati --), mujair (hati --)
+		1:  # PERTENGAHAN — albino : sapu-sapu : mas : mujair = 2:3:3:2
 			return [
-				{"scene": sapu_sapu_albino_scene, "bobot": 0.20},
-				{"scene": sapu_sapu_scene,        "bobot": 0.20},
-				{"scene": mas_scene,              "bobot": 0.30},
-				{"scene": mujair_scene,           "bobot": 0.30},
+				{"scene": sapu_sapu_albino_scene, "bobot": 2.0},
+				{"scene": sapu_sapu_scene,        "bobot": 3.0},
+				{"scene": mas_scene,              "bobot": 3.0},
+				{"scene": mujair_scene,           "bobot": 2.0},
 			]
-		_:  # PERKOTAAN — zebra (+30), albino (+20), sapu-sapu biasa (+10), lele (hati --), buaya (hati -3 mendekat)
+		_:  # PERKOTAAN — zebra:albino:sapu-sapu:lele:buaya = 1:2:3:3:1, mujair & mas lebih dikit dari buaya
 			return [
-				{"scene": sapu_sapu_zebra_scene,  "bobot": 0.20},
-				{"scene": sapu_sapu_albino_scene, "bobot": 0.20},
-				{"scene": sapu_sapu_scene,        "bobot": 0.20},
-				{"scene": lele_scene,             "bobot": 0.20},
-				{"scene": mujair_scene,           "bobot": 0.05},
-				{"scene": mas_scene,              "bobot": 0.05},
-				{"scene": buaya_scene,            "bobot": 0.10},
+				{"scene": sapu_sapu_zebra_scene,  "bobot": 1.0},
+				{"scene": sapu_sapu_albino_scene, "bobot": 2.0},
+				{"scene": sapu_sapu_scene,        "bobot": 3.0},
+				{"scene": lele_scene,             "bobot": 3.0},
+				{"scene": buaya_scene,            "bobot": 1.0},
+				{"scene": mujair_scene,           "bobot": 0.5},
+				{"scene": mas_scene,              "bobot": 0.5},
 			]
 
 func _ambil_ikan_acak() -> Node:
