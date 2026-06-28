@@ -10,11 +10,16 @@ func _ready():
 	get_tree().paused = true
 	score_label.text = str(Global.poin)
 	target_label.text = "%d/%d" % [Global.sapu_sapu_ditangkap, Global.target_sapu_sapu]
+
+	MusicManager.putar_sfx("res://asset/audio/sfx_kalah.ogg")
+	MusicManager.kecilkan_musik()
+
 	menu_button.pressed.connect(_on_menu)
 	ulangi_button.pressed.connect(_on_ulangi)
 
 func _on_ulangi():
 	get_tree().paused = false
+	MusicManager.kembalikan_musik()
 	Global.poin = 0
 	Global.nyawa = 5
 	Global.album_koleksi.clear()
@@ -25,6 +30,7 @@ func _on_ulangi():
 
 func _on_menu():
 	get_tree().paused = false
+	MusicManager.kembalikan_musik()
 	Global.poin = 0
 	Global.nyawa = 5
 	Global.album_koleksi.clear()

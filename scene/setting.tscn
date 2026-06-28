@@ -105,7 +105,7 @@ offset_top = 246.0
 offset_right = 590.0
 offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_fhdrf")
+texture = ExtResource("8_7piks")
 
 [node name="LabelSuara" type="Label" parent="." unique_id=1873684331]
 layout_mode = 0
@@ -115,8 +115,7 @@ offset_right = 628.0
 offset_bottom = 348.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Suara
-"
+text = "Musik"
 
 [node name="SuaraSlider" type="HSlider" parent="." unique_id=1702403064]
 layout_mode = 0
@@ -135,7 +134,7 @@ offset_top = 326.0
 offset_right = 590.0
 offset_bottom = 443.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_7piks")
+texture = ExtResource("7_fhdrf")
 
 [node name="LabelMusik" type="Label" parent="." unique_id=370013821]
 layout_mode = 0
@@ -145,7 +144,7 @@ offset_right = 632.0
 offset_bottom = 383.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Musik"
+text = "Efek"
 
 [node name="MusikSlider" type="HSlider" parent="." unique_id=1776805171]
 layout_mode = 0
@@ -193,5 +192,5 @@ offset_left = 877.0
 offset_top = 429.0
 offset_right = 911.0
 offset_bottom = 454.0
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45755932, 0.45918787)
 texture = ExtResource("11_oappg")

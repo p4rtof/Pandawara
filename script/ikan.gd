@@ -74,6 +74,7 @@ func _tampilkan_popup_menang():
 
 func _on_area_entered(_area: Area2D) -> void:
 	if _area.is_in_group("jaring"):
+		MusicManager.putar_sfx("res://asset/audio/sfx_tangkap.ogg")
 		var data = _get_data()
 		var adalah_baru = _cek_dan_tambah_album(data)
 		if adalah_baru:
