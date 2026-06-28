@@ -15,11 +15,8 @@ func _ready():
 
 func _on_lanjut():
 	get_tree().paused = false
-	if Global.bioma_dipilih < 2:
-		get_tree().change_scene_to_file("res://scene/story_transisi.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scene/gameover.tscn")  # bioma terakhir, ini "menang total"
-
+	Global.siapkan_story_outro()
+	get_tree().change_scene_to_file("res://scene/story_transisi.tscn")
 func _on_menu():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scene/mainmenu.tscn")

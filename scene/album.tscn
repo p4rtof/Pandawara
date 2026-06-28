@@ -13,6 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://ct0qtqtmjnuke" path="res://asset/slcsapu2albino.png" id="11_guw0y"]
 [ext_resource type="Texture2D" uid="uid://c42mkmexg65me" path="res://asset/BtnMas.png" id="12_ojjeo"]
 [ext_resource type="Texture2D" uid="uid://dc6tsvqsue5mv" path="res://asset/slcmas.png" id="13_5qfb7"]
+[ext_resource type="Texture2D" uid="uid://b38g7lbemscye" path="res://asset/BtnSapu2Loreng.png" id="14_guw0y"]
+[ext_resource type="Texture2D" uid="uid://bfq4wf5f76n46" path="res://asset/slcsapu2loreng.png" id="15_ojjeo"]
+[ext_resource type="Texture2D" uid="uid://sf7sv674co2g" path="res://asset/BtnLele.png" id="16_kk25o"]
+[ext_resource type="Texture2D" uid="uid://ct3a4oc8dsq8y" path="res://asset/slclele.png" id="17_1vg4y"]
+[ext_resource type="Texture2D" uid="uid://c4i6pqn8se7nw" path="res://asset/BtnBuaya.png" id="18_d3iji"]
+[ext_resource type="Texture2D" uid="uid://d2w4tudxmwjso" path="res://asset/slcbuaya.png" id="19_jtsjq"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_nciur"]
 
@@ -100,16 +106,22 @@ offset_bottom = 309.20636
 scale = Vector2(0.1567599, 0.63818127)
 texture = ExtResource("4_amkp5")
 
-[node name="GridContainer" type="VBoxContainer" parent="." unique_id=2013606128]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=789641618]
 layout_mode = 0
 offset_left = -53.476578
 offset_top = -204.48495
-offset_right = 314.52344
-offset_bottom = -44.484955
+offset_right = 331.52344
+offset_bottom = 195.51505
 scale = Vector2(0.15574892, 0.64468586)
-theme_override_constants/separation = 20
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="ButtonSapu2" type="TextureButton" parent="GridContainer" unique_id=2008036124]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1557317611]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ButtonSapu2" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=2008036124]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_nciur")
@@ -118,7 +130,7 @@ texture_pressed = ExtResource("6_nciur")
 texture_hover = ExtResource("6_nciur")
 texture_disabled = ExtResource("7_sccle")
 
-[node name="ButtonMujair" type="TextureButton" parent="GridContainer" unique_id=730550273]
+[node name="ButtonMujair" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=730550273]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_s6h3h")
@@ -127,7 +139,7 @@ texture_pressed = ExtResource("8_s6h3h")
 texture_hover = ExtResource("8_s6h3h")
 texture_disabled = ExtResource("7_sccle")
 
-[node name="ButtonSapu2Albino" type="TextureButton" parent="GridContainer" unique_id=543851415]
+[node name="ButtonSapu2Albino" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=543851415]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_aq4v2")
@@ -136,11 +148,35 @@ texture_pressed = ExtResource("11_guw0y")
 texture_hover = ExtResource("11_guw0y")
 texture_disabled = ExtResource("7_sccle")
 
-[node name="ButtonMas" type="TextureButton" parent="GridContainer" unique_id=1129084220]
+[node name="ButtonMas" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=1129084220]
 layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kk25o")
 texture_normal = ExtResource("12_ojjeo")
 texture_pressed = ExtResource("13_5qfb7")
 texture_hover = ExtResource("13_5qfb7")
+texture_disabled = ExtResource("7_sccle")
+
+[node name="ButtonSapu2Loreng" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=1235635046]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("14_guw0y")
+texture_pressed = ExtResource("15_ojjeo")
+texture_hover = ExtResource("15_ojjeo")
+texture_disabled = ExtResource("7_sccle")
+
+[node name="ButtonLele" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=1983959543]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("16_kk25o")
+texture_pressed = ExtResource("17_1vg4y")
+texture_hover = ExtResource("17_1vg4y")
+texture_disabled = ExtResource("7_sccle")
+
+[node name="ButtonBuaya" type="TextureButton" parent="ScrollContainer/VBoxContainer" unique_id=632753262]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("18_d3iji")
+texture_pressed = ExtResource("19_jtsjq")
+texture_hover = ExtResource("19_jtsjq")
 texture_disabled = ExtResource("7_sccle")

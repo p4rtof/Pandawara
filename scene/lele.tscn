@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c5oevcrss36wb"]
+
+[ext_resource type="Script" uid="uid://dim6dy5yvb5i" path="res://script/ikan.gd" id="1_wbhf8"]
+[ext_resource type="Texture2D" uid="uid://dgxluvy1s4wb4" path="res://asset/ikan_lele.png" id="2_wbhf8"]
+[ext_resource type="Texture2D" uid="uid://cbauprdm3b7le" path="res://asset/popup_lele.png" id="3_wbhf8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
+radius = 20.00102
+height = 143.99792
+
+[node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+collision_mask = 3
+script = ExtResource("1_wbhf8")
+nama_ikan = "Lele"
+deskripsi = "Ikan lele"
+texture_ikan = ExtResource("2_wbhf8")
+texture_popup = ExtResource("3_wbhf8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
+position = Vector2(-18, 18.086142)
+rotation = -1.558634
+scale = Vector2(0.14777635, 0.14722602)
+texture = ExtResource("2_wbhf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
+position = Vector2(-42.000004, 16.000006)
+rotation = 1.5713066
+shape = SubResource("CapsuleShape2D_26uxn")

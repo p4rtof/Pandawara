@@ -39,44 +39,45 @@ offset_right = 1112.0
 offset_bottom = 608.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1526483, 1.0369725)
 texture = ExtResource("2_ahr6q")
 expand_mode = 1
 
 [node name="PanelKrem" type="TextureRect" parent="." unique_id=1126059166]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 160.0
-offset_right = 876.0
-offset_bottom = 510.0
+offset_left = 431.0
+offset_top = 206.0
+offset_right = 1031.0
+offset_bottom = 556.0
 texture = ExtResource("3_g2to7")
 expand_mode = 1
 
 [node name="HeaderPengaturan" type="TextureRect" parent="." unique_id=508337942]
 layout_mode = 0
-offset_left = 440.0
-offset_top = 86.0
-offset_right = 708.0
-offset_bottom = 146.0
+offset_left = 595.0
+offset_top = 132.0
+offset_right = 863.0
+offset_bottom = 192.0
 texture = ExtResource("4_2wb80")
 expand_mode = 1
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1245251698]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 92.0
-offset_right = 678.0
-offset_bottom = 179.0
+offset_left = 664.0
+offset_top = 138.0
+offset_right = 833.0
+offset_bottom = 225.0
 theme_override_font_sizes/font_size = 30
 text = "Pengaturan
 "
 
 [node name="BackButton" type="TextureButton" parent="." unique_id=1757053235]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 20.0
-offset_right = 120.0
-offset_bottom = 113.0
-scale = Vector2(0.5, 0.5)
+offset_left = 57.0
+offset_top = 47.0
+offset_right = 147.0
+offset_bottom = 140.0
+scale = Vector2(0.6659442, 0.6973664)
 texture_normal = ExtResource("5_123qk")
 
 [node name="Kembali" type="TextureRect" parent="BackButton" unique_id=1902593583]
@@ -90,28 +91,28 @@ texture = ExtResource("6_2xxw5")
 
 [node name="IconPengaturan" type="TextureRect" parent="." unique_id=1651439486]
 layout_mode = 0
-offset_left = 451.0
-offset_top = 98.0
-offset_right = 529.0
-offset_bottom = 176.0
+offset_left = 606.0
+offset_top = 144.0
+offset_right = 684.0
+offset_bottom = 222.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_8pksm")
 
 [node name="IconSuara" type="TextureRect" parent="." unique_id=1880765179]
 layout_mode = 0
-offset_left = 310.0
-offset_top = 200.0
-offset_right = 435.0
-offset_bottom = 317.0
+offset_left = 465.0
+offset_top = 246.0
+offset_right = 590.0
+offset_bottom = 363.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_fhdrf")
 
 [node name="LabelSuara" type="Label" parent="." unique_id=1873684331]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 215.0
-offset_right = 435.0
-offset_bottom = 264.0
+offset_left = 545.0
+offset_top = 261.0
+offset_right = 628.0
+offset_bottom = 348.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Suara
@@ -119,68 +120,68 @@ text = "Suara
 
 [node name="SuaraSlider" type="HSlider" parent="." unique_id=1702403064]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 231.0
-offset_right = 800.0
-offset_bottom = 251.0
+offset_left = 655.0
+offset_top = 277.0
+offset_right = 955.0
+offset_bottom = 297.0
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_qavsv")
 min_value = -40.0
 max_value = 0.0
 
 [node name="IconMusik" type="TextureRect" parent="." unique_id=2057698684]
 layout_mode = 0
-offset_left = 310.0
-offset_top = 280.0
-offset_right = 435.0
-offset_bottom = 397.0
+offset_left = 465.0
+offset_top = 326.0
+offset_right = 590.0
+offset_bottom = 443.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_7piks")
 
 [node name="LabelMusik" type="Label" parent="." unique_id=370013821]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 295.0
-offset_right = 437.0
-offset_bottom = 318.0
+offset_left = 545.0
+offset_top = 341.0
+offset_right = 632.0
+offset_bottom = 383.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Musik"
 
 [node name="MusikSlider" type="HSlider" parent="." unique_id=1776805171]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 307.0
-offset_right = 800.0
-offset_bottom = 327.0
+offset_left = 655.0
+offset_top = 353.0
+offset_right = 955.0
+offset_bottom = 373.0
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_ede2d")
 min_value = -40.0
 max_value = 0.0
 
 [node name="IconBahasa" type="TextureRect" parent="." unique_id=2068003077]
 layout_mode = 0
-offset_left = 310.0
-offset_top = 360.0
-offset_right = 435.0
-offset_bottom = 477.0
+offset_left = 465.0
+offset_top = 406.0
+offset_right = 590.0
+offset_bottom = 523.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("9_mxaae")
 
 [node name="LabelBahasa" type="Label" parent="." unique_id=309590161]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 375.0
-offset_right = 447.0
-offset_bottom = 398.0
+offset_left = 545.0
+offset_top = 421.0
+offset_right = 651.0
+offset_bottom = 463.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Bahasa"
 
 [node name="BahasaDropdown" type="OptionButton" parent="." unique_id=1037754403]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 370.0
-offset_right = 740.0
-offset_bottom = 410.0
+offset_left = 745.0
+offset_top = 416.0
+offset_right = 895.0
+offset_bottom = 456.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_2xxw5")
 item_count = 1
 popup/item_0/text = "Indonesia"
@@ -188,9 +189,9 @@ popup/item_0/id = 0
 
 [node name="ArrowBahasa" type="TextureRect" parent="." unique_id=90908154]
 layout_mode = 0
-offset_left = 722.0
-offset_top = 383.0
-offset_right = 756.0
-offset_bottom = 408.0
+offset_left = 877.0
+offset_top = 429.0
+offset_right = 911.0
+offset_bottom = 454.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_oappg")

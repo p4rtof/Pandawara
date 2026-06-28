@@ -1,24 +1,25 @@
 [gd_scene format=3 uid="uid://c72diyxp8dws4"]
 
 [ext_resource type="Script" uid="uid://bsmivock7o537" path="res://script/player.gd" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://buhmoqgnts8eo" path="res://asset/player.png" id="2_fvtld"]
+[ext_resource type="Texture2D" uid="uid://c21w3motpc3ws" path="res://asset/player (2).png" id="2_hjaqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct4mp"]
-size = Vector2(86, 166)
+size = Vector2(69, 139)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4jxa"]
 radius = 32.528076
 height = 83.42798
 
-[node name="Player" type="CharacterBody2D" unique_id=952140070]
+[node name="Player" type="CharacterBody2D" unique_id=952140070 groups=["player"]]
 script = ExtResource("1_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1613402600]
-scale = Vector2(0.3535156, 0.37304688)
-texture = ExtResource("2_fvtld")
+position = Vector2(-1, -26)
+scale = Vector2(0.13480254, 0.1554914)
+texture = ExtResource("2_hjaqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758374539]
-position = Vector2(-7, -17)
+position = Vector2(-35.5, -32.5)
 shape = SubResource("RectangleShape2D_ct4mp")
 
 [node name="Jaring" type="Area2D" parent="." unique_id=2074494456 groups=["jaring"]]

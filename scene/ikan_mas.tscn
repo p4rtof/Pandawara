@@ -5,25 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://c1m4jfhs2ogue" path="res://asset/popup_mas.png" id="3_ub73p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
-radius = 17.947641
-height = 127.96419
+radius = 27.992168
+height = 160.04987
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 collision_mask = 3
 script = ExtResource("1_ek2m8")
-nama_ikan = "Ikan Mas"
+nama_ikan = "Mas"
 deskripsi = "Ikan mass"
 texture_ikan = ExtResource("2_ek2m8")
 texture_popup = ExtResource("3_ub73p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
 position = Vector2(-18, 18.086142)
-scale = Vector2(0.7958026, 0.97103935)
+rotation = -1.558634
+scale = Vector2(0.14777635, 0.14722602)
 texture = ExtResource("2_ek2m8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
 position = Vector2(-23.999996, 20)
-rotation = 1.5471337
+rotation = 1.5713066
 shape = SubResource("CapsuleShape2D_26uxn")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b2l8s3dlbsdpj"]
+
+[ext_resource type="Script" uid="uid://ceu5jvxof236a" path="res://script/buaya.gd" id="1_pp2g5"]
+[ext_resource type="Texture2D" uid="uid://c7lnrhnkkurbn" path="res://asset/buaya.png" id="2_pp2g5"]
+[ext_resource type="Texture2D" uid="uid://dd2vl77atead5" path="res://asset/popup_buaya.png" id="3_u5h4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
+radius = 19.34006
+height = 160.04987
+
+[node name="Buaya" type="Area2D" unique_id=358134481 groups=["ikan"]]
+rotation = 1.5707964
+scale = Vector2(0.86006445, 0.72388583)
+collision_mask = 3
+script = ExtResource("1_pp2g5")
+texture_ikan = ExtResource("2_pp2g5")
+texture_popup = ExtResource("3_u5h4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
+position = Vector2(-18, 18.086142)
+rotation = -1.558634
+scale = Vector2(0.14777634, 0.14722602)
+texture = ExtResource("2_pp2g5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
+position = Vector2(-49.996254, 17.958635)
+rotation = 1.5713066
+shape = SubResource("CapsuleShape2D_26uxn")

@@ -4,6 +4,9 @@ extends Node2D
 @export var mas_scene: PackedScene
 @export var mujair_scene: PackedScene
 @export var sapu_sapu_albino_scene: PackedScene
+@export var sapu_sapu_zebra_scene: PackedScene  # kota: +30 poin
+@export var lele_scene: PackedScene             # kota: hati --
+@export var buaya_scene: PackedScene            # kota: hati -3 saat mendekat
 
 var batas_ikan = 30
 var sungai_atas = 0.0
@@ -61,44 +64,62 @@ func _ready():
 # format: { scene: PackedScene, bobot: float } -> bobot = peluang relatif muncul
 func _kolam_ikan() -> Array:
 	match Global.bioma_dipilih:
-		0:  # DESA / HULU — cuma sapu-sapu biasa & mujair
+		0:  # DESA — sapu-sapu biasa (+10), mujair (hati --)
 			return [
-				{"scene": sapu_sapu_scene, "bobot": 0.4},
-				{"scene": mujair_scene, "bobot": 0.6},
+				{"scene": sapu_sapu_scene, "bobot": 0.40},
+				{"scene": mujair_scene,    "bobot": 0.60},
 			]
-		1:  # PERTENGAHAN — sapu-sapu biasa + albino + mujair + mas
+		1:  # PERTENGAHAN — albino (+20), sapu-sapu biasa (+10), mas (hati --), mujair (hati --)
 			return [
-				{"scene": sapu_sapu_scene, "bobot": 0.25},
-				{"scene": sapu_sapu_albino_scene, "bobot": 0.15},
-				{"scene": mujair_scene, "bobot": 0.3},
-				{"scene": mas_scene, "bobot": 0.3},
+				{"scene": sapu_sapu_albino_scene, "bobot": 0.20},
+				{"scene": sapu_sapu_scene,        "bobot": 0.20},
+				{"scene": mas_scene,              "bobot": 0.30},
+				{"scene": mujair_scene,           "bobot": 0.30},
 			]
-		_:  # PERKOTAAN — sementara disamain kayak pertengahan, ganti nanti kalau ada ikan baru lagi
+		_:  # PERKOTAAN — zebra (+30), albino (+20), sapu-sapu biasa (+10), lele (hati --), buaya (hati -3 mendekat)
 			return [
-				{"scene": sapu_sapu_scene, "bobot": 0.25},
-				{"scene": sapu_sapu_albino_scene, "bobot": 0.15},
-				{"scene": mujair_scene, "bobot": 0.3},
-				{"scene": mas_scene, "bobot": 0.3},
+				{"scene": sapu_sapu_zebra_scene,  "bobot": 0.20},
+				{"scene": sapu_sapu_albino_scene, "bobot": 0.20},
+				{"scene": sapu_sapu_scene,        "bobot": 0.20},
+				{"scene": lele_scene,             "bobot": 0.20},
+				{"scene": mujair_scene,           "bobot": 0.05},
+				{"scene": mas_scene,              "bobot": 0.05},
+				{"scene": buaya_scene,            "bobot": 0.10},
 			]
 
 func _ambil_ikan_acak() -> Node:
 	var kolam = _kolam_ikan()
-	var total_bobot = 0.0
+
+	# Buang entry yang scene-nya belum diassign di Inspector
+	var kolam_valid: Array = []
 	for item in kolam:
+		if item["scene"] != null:
+			kolam_valid.append(item)
+		else:
+			push_warning("scene null di kolam bioma %d, dilewati." % Global.bioma_dipilih)
+
+	if kolam_valid.is_empty():
+		push_error("Tidak ada scene ikan valid di bioma %d!" % Global.bioma_dipilih)
+		return null
+
+	var total_bobot = 0.0
+	for item in kolam_valid:
 		total_bobot += item["bobot"]
-	
+
 	var pilihan = randf() * total_bobot
 	var kumulatif = 0.0
-	for item in kolam:
+	for item in kolam_valid:
 		kumulatif += item["bobot"]
 		if pilihan <= kumulatif:
 			return item["scene"].instantiate()
-	
-	return kolam[0]["scene"].instantiate()  # fallback
+
+	return kolam_valid[0]["scene"].instantiate()  # fallback
 
 func _spawn_ikan_awal():
 	for i in range(25):
 		var ikan_baru = _ambil_ikan_acak()
+		if ikan_baru == null:
+			continue
 
 		ikan_baru.position = Vector2(
 			randf_range(350, 1000),
@@ -121,6 +142,8 @@ func _on_timer_timeout():
 		return
 
 	var ikan_baru = _ambil_ikan_acak()
+	if ikan_baru == null:
+		return
 
 	var player_pos = $Player.position
 	var spawn_pos = Vector2.ZERO

@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://coeu7s8sjgl63" path="res://scene/sapu_sapu_albino.tscn" id="5_2v02c"]
 [ext_resource type="Texture2D" uid="uid://b7bkrsn5yugwi" path="res://asset/papanSkor.png" id="6_2gvfr"]
 [ext_resource type="Script" uid="uid://cbcp2kut1xfpk" path="res://script/ui.gd" id="6_2v02c"]
+[ext_resource type="PackedScene" uid="uid://k5i18vhxfh30" path="res://scene/sapu_sapu_loreng.tscn" id="6_5yxky"]
 [ext_resource type="Texture2D" uid="uid://cf4wcvcirsbtk" path="res://asset/hati.png" id="6_hlnvp"]
 [ext_resource type="Texture2D" uid="uid://di76uorfuodua" path="res://asset/pause.png" id="7_35kdq"]
+[ext_resource type="PackedScene" uid="uid://c5oevcrss36wb" path="res://scene/lele.tscn" id="7_tnv0f"]
+[ext_resource type="PackedScene" uid="uid://b2l8s3dlbsdpj" path="res://scene/buaya.tscn" id="8_orjo5"]
 
 [node name="game_sungai" type="Node2D" unique_id=1041822859]
 scale = Vector2(1, 1.0252032)
@@ -18,6 +21,9 @@ sapu_sapu_scene = ExtResource("3_ad5km")
 mas_scene = ExtResource("3_841pt")
 mujair_scene = ExtResource("2_ad5km")
 sapu_sapu_albino_scene = ExtResource("5_2v02c")
+sapu_sapu_zebra_scene = ExtResource("6_5yxky")
+lele_scene = ExtResource("7_tnv0f")
+buaya_scene = ExtResource("8_orjo5")
 
 [node name="Player" parent="." unique_id=952140070 instance=ExtResource("4_cjpnc")]
 z_index = 5
@@ -51,10 +57,10 @@ vertical_alignment = 1
 
 [node name="Target" type="Label" parent="UI/PoinLabel" unique_id=497764377]
 layout_mode = 0
-offset_left = 229.5179
-offset_top = 37.85181
-offset_right = 269.5179
-offset_bottom = 60.85181
+offset_left = 257.21832
+offset_top = 41.006126
+offset_right = 297.21832
+offset_bottom = 64.00613
 scale = Vector2(2.012899, 1.7613492)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0/10"
@@ -100,6 +106,7 @@ scale = Vector2(0.18006131, 0.18542334)
 texture = ExtResource("6_hlnvp")
 
 [node name="AlbumButton" type="Button" parent="UI" unique_id=159305130]
+visible = false
 offset_left = 790.0
 offset_top = 312.0
 offset_right = 875.0

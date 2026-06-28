@@ -20,13 +20,13 @@ var gambar_story = [
 var index = 0
 
 @onready var background = $Background
-@onready var lanjut_button = $LanjutButton
-@onready var kembali_button = $KembaliButton  # ← TAMBAH INI
+#@onready var lanjut_button = $LanjutButton
+#@onready var kembali_button = $KembaliButton  # ← TAMBAH INI
 
 func _ready():
 	MusicManager.putar("res://asset/audio/sound.ogg")
-	lanjut_button.pressed.connect(_on_lanjut)
-	kembali_button.pressed.connect(_on_kembali)  # ← TAMBAH INI
+	#lanjut_button.pressed.connect(_on_lanjut)
+	#kembali_button.pressed.connect(_on_kembali)  # ← TAMBAH INI
 	_tampilkan(0)
 
 func _tampilkan(i: int):
@@ -34,12 +34,12 @@ func _tampilkan(i: int):
 	
 	
 	# Sembunyikan tombol kembali di halaman pertama
-	kembali_button.visible = i > 0  # ← TAMBAH INI
-	
-	if i == gambar_story.size() - 1:
-		lanjut_button.text = "Mulai! ▶"
-	else:
-		lanjut_button.text = "Lanjut ▶"
+	#kembali_button.visible = i > 0  # ← TAMBAH INI
+	#
+	#if i == gambar_story.size() - 1:
+		#lanjut_button.text = "Mulai! ▶"
+	#else:
+		#lanjut_button.text = "Lanjut ▶"
 
 func _on_lanjut():
 	index += 1

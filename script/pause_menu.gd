@@ -4,6 +4,8 @@ extends Control
 @onready var main_menu_button = $Pause/MainMenuButton
 @onready var tutorial_button = $Pause/TutorialButton
 
+var tutorial_scene = preload("res://scene/tutorial_popup.tscn")
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS 
 	resume_button.pressed.connect(_resume)
@@ -16,7 +18,8 @@ func _resume():
 
 func _ke_main_menu():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scene/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scene/pilih_bioma.tscn")
 
 func _buka_tutorial():
-	print("buka tutorial")  # g   anti sesuai kebutuhan nanti
+	var tutorial = tutorial_scene.instantiate()
+	add_child(tutorial)  # g   anti sesuai kebutuhan nanti

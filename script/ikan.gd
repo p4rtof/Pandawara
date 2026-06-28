@@ -6,6 +6,7 @@ extends Area2D
 @export var texture_ikan: Texture2D
 @export var kelangkaan: String = "Umum" 
 @export var texture_popup: Texture2D 
+@export var damage_nyawa: int = 1  # berapa hati berkurang saat ditangkap (untuk ikan berbahaya)
 var arah = Vector2.ZERO
 var kecepatan = 0.0
 var timer_ganti_arah = 0.0
@@ -95,9 +96,12 @@ func _on_area_entered(_area: Area2D) -> void:
 				call_deferred("_tampilkan_popup_menang")
 				return
 		else:
+			var kurang = damage_nyawa  # lele = 1, buaya = 3
 			if Global.nyawa > 0:
-				Global.nyawa -= 1
-				print("❌ Nyawa: ", Global.nyawa)
+				Global.nyawa -= kurang
+				if Global.nyawa < 0:
+					Global.nyawa = 0
+				print("❌ %s mengurangi %d hati | Nyawa: %d" % [nama_ikan, kurang, Global.nyawa])
 			if Global.nyawa <= 0 and not Global.sedang_game_over:
 				Global.sedang_game_over = true
 				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")

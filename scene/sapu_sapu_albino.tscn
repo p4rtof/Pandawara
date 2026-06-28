@@ -56,17 +56,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_26uxn"]
-radius = 31.251743
-height = 228.30602
+radius = 23.41851
+height = 180.0324
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vm3ti"]
 
 [node name="Ikan" type="Area2D" unique_id=854384470 groups=["ikan"]]
-rotation = 1.5707964
+position = Vector2(0, -1)
+rotation = 1.5821093
 scale = Vector2(0.5, 0.5118282)
 collision_mask = 3
 script = ExtResource("1_406x7")
-nama_ikan = "Ikan sapu sapu Albino"
+nama_ikan = "Sapu-sapu Albino"
 deskripsi = "Ikan sapu sapu Albino"
 adalah_sapu_sapu = true
 poin_tangkap = 20
@@ -81,11 +82,12 @@ sprite_frames = SubResource("SpriteFrames_v8dx6")
 frame_progress = 0.123271115
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=213606095]
-scale = Vector2(0.21420236, 0.21112469)
+rotation = -1.5913244
+scale = Vector2(0.14488372, 0.13988733)
 texture = ExtResource("2_406x7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1476355047]
-position = Vector2(-1.9073486e-06, -9.768904)
+position = Vector2(-7.999488, 0.088410646)
 rotation = 1.5471337
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_26uxn")

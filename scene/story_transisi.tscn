@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ds3urjko5xuxt" path="res://script/story_transisi.gd" id="1_13daj"]
 [ext_resource type="Texture2D" uid="uid://c4wa3kcjtgqup" path="res://asset/story/story1.png" id="2_887d1"]
 [ext_resource type="Texture2D" uid="uid://xff02dxp5cjs" path="res://asset/misi_selesai.png" id="3_887d1"]
+[ext_resource type="Texture2D" uid="uid://be87qq78yru5v" path="res://asset/space.png" id="4_hwqpc"]
 
 [node name="StoryTransisi" type="Control" unique_id=238379891]
 layout_mode = 3
@@ -27,6 +28,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="LanjutButton" type="Button" parent="." unique_id=54221740]
+visible = false
 layout_mode = 0
 offset_left = 139.00002
 offset_top = 521.0
@@ -38,6 +40,7 @@ theme_override_font_sizes/font_size = 32
 text = "Lanjut"
 
 [node name="KembaliButton" type="Button" parent="." unique_id=335948070]
+visible = false
 layout_mode = 0
 offset_left = 24.000015
 offset_top = 523.0
@@ -49,6 +52,7 @@ theme_override_font_sizes/font_size = 32
 text = "Kembali"
 
 [node name="PreeSpace" type="Label" parent="." unique_id=615043932]
+visible = false
 layout_mode = 0
 offset_left = 305.0
 offset_top = 590.0
@@ -61,9 +65,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TombolSelesai" type="TextureButton" parent="." unique_id=1272579700]
+visible = false
 layout_mode = 0
 offset_left = 749.0
 offset_top = 366.0
 offset_right = 945.0
 offset_bottom = 562.0
 texture_normal = ExtResource("3_887d1")
+
+[node name="PreeSpace2" type="TextureRect" parent="." unique_id=1119438623]
+layout_mode = 0
+offset_left = 477.99997
+offset_top = 596.0
+offset_right = 1791.0
+offset_bottom = 696.0
+scale = Vector2(0.17673157, 0.2736865)
+texture = ExtResource("4_hwqpc")
