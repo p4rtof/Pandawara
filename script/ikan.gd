@@ -6,7 +6,7 @@ extends Area2D
 @export var texture_ikan: Texture2D
 @export var kelangkaan: String = "Umum" 
 @export var texture_popup: Texture2D 
-@export var damage_nyawa: int = 1  # berapa hati berkurang saat ditangkap (untuk ikan berbahaya)
+@export var damage_nyawa: int = 1
 var arah = Vector2.ZERO
 var kecepatan = 0.0
 var timer_ganti_arah = 0.0
@@ -50,10 +50,13 @@ func _ganti_arah():
 	timer_ganti_arah = randf_range(2.0, 4.0)
 
 func _cek_dan_tambah_album(data: Dictionary) -> bool:
-	for item in Global.album_koleksi:
-		if item["nama"] == data["nama"]:
-			return false
-	Global.album_koleksi.append(data)
+	# Cek di semua bioma dulu — kalau sudah pernah ditangkap di manapun, skip
+	for bioma in Global.album_per_bioma:
+		for item in bioma:
+			if item["nama"] == data["nama"]:
+				return false
+	# Simpan ke bioma yang sedang dimainkan
+	Global.album_per_bioma[Global.bioma_dipilih].append(data)
 	return true
 
 func _tampilkan_popup(data: Dictionary):
@@ -97,7 +100,7 @@ func _on_area_entered(_area: Area2D) -> void:
 				call_deferred("_tampilkan_popup_menang")
 				return
 		else:
-			var kurang = damage_nyawa  # lele = 1, buaya = 3
+			var kurang = damage_nyawa
 			if Global.nyawa > 0:
 				Global.nyawa -= kurang
 				if Global.nyawa < 0:
@@ -108,7 +111,6 @@ func _on_area_entered(_area: Area2D) -> void:
 				call_deferred("_tampilkan_gameover")
 				return
 		call_deferred("queue_free")
-
 
 func _tampilkan_gameover():
 	var ui = get_tree().get_first_node_in_group("ui_layer")
@@ -143,6 +145,6 @@ func _get_data() -> Dictionary:
 		"deskripsi": deskripsi,
 		"adalah_sapu_sapu": adalah_sapu_sapu,
 		"texture": texture_ikan,
-		"texture_popup": texture_popup,   # ← BARU
+		"texture_popup": texture_popup,
 		"kelangkaan": kelangkaan
 	}

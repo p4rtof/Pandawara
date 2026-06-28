@@ -22,7 +22,7 @@ func _on_ulangi():
 	MusicManager.kembalikan_musik()
 	Global.poin = 0
 	Global.nyawa = 5
-	Global.album_koleksi.clear()
+	Global.clear_album_bioma_sekarang()  # hanya hapus ikan dari bioma ini
 	Global.sapu_sapu_ditangkap = 0
 	Global.sedang_game_over = false
 	Global.target_sapu_sapu = Global.target_sapu_sapu_per_bioma[Global.bioma_dipilih]
@@ -33,7 +33,7 @@ func _on_menu():
 	MusicManager.kembalikan_musik()
 	Global.poin = 0
 	Global.nyawa = 5
-	Global.album_koleksi.clear()
+	Global.clear_album_bioma_sekarang()  # hanya hapus ikan dari bioma ini, bioma lain tetap
 	Global.sapu_sapu_ditangkap = 0
 	Global.sedang_game_over = false
 	get_tree().change_scene_to_file("res://scene/pilih_bioma.tscn")

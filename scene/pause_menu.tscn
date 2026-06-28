@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpdvwtwj6ni" path="res://asset/lanjut_button_pause.png" id="4_r1gbo"]
 [ext_resource type="Texture2D" uid="uid://bgvh3jeu52xtx" path="res://asset/tutorial_button.png" id="5_71u2q"]
 [ext_resource type="Texture2D" uid="uid://ug7wpc2ly6yk" path="res://asset/menu_utama_button.png" id="6_xugnn"]
+[ext_resource type="Texture2D" uid="uid://u1g4abc04c17" path="res://asset/Group 14.png" id="7_et5lo"]
 
 [node name="PauseMenu" type="Control" unique_id=203742211]
 layout_mode = 3
@@ -50,24 +51,45 @@ texture = ExtResource("3_et5lo")
 
 [node name="ResumeButton" type="TextureButton" parent="Pause" unique_id=1709391104]
 layout_mode = 0
-offset_left = 307.01743
-offset_top = 258.04095
-offset_right = 729.01746
-offset_bottom = 364.04095
+offset_left = 332.3453
+offset_top = 257.6302
+offset_right = 754.34534
+offset_bottom = 363.6302
+scale = Vector2(0.8838931, 0.75468487)
 texture_normal = ExtResource("4_r1gbo")
 
 [node name="TutorialButton" type="TextureButton" parent="Pause" unique_id=552449338]
 layout_mode = 0
-offset_left = 311.09286
-offset_top = 393.32455
-offset_right = 733.0929
-offset_bottom = 499.32455
+offset_left = 333.8628
+offset_top = 352.54654
+offset_right = 755.8628
+offset_bottom = 458.54654
+scale = Vector2(0.8838931, 0.75468487)
 texture_normal = ExtResource("5_71u2q")
 
 [node name="MainMenuButton" type="TextureButton" parent="Pause" unique_id=583356456]
 layout_mode = 0
-offset_left = 308.3759
-offset_top = 523.59766
-offset_right = 730.3759
-offset_bottom = 628.59766
+offset_left = 335.38034
+offset_top = 444.75107
+offset_right = 757.3804
+offset_bottom = 549.7511
+scale = Vector2(0.8838931, 0.75468487)
 texture_normal = ExtResource("6_xugnn")
+
+[node name="MusikSlider" type="HSlider" parent="Pause" unique_id=2020023283]
+layout_mode = 0
+offset_left = 432.5041
+offset_top = 554.5828
+offset_right = 702.5041
+offset_bottom = 579.5828
+min_value = -40.0
+max_value = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="Pause" unique_id=1729351376]
+layout_mode = 0
+offset_left = 346.00327
+offset_top = 538.31146
+offset_right = 471.00327
+offset_bottom = 655.31146
+scale = Vector2(0.56238496, 0.48264396)
+texture = ExtResource("7_et5lo")

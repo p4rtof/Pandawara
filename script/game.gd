@@ -82,7 +82,7 @@ func _kolam_ikan() -> Array:
 				{"scene": sapu_sapu_albino_scene, "bobot": 2.0},
 				{"scene": sapu_sapu_scene,        "bobot": 3.0},
 				{"scene": lele_scene,             "bobot": 3.0},
-				{"scene": buaya_scene,            "bobot": 1.0},
+				{"scene": buaya_scene,            "bobot": 0.7},
 				{"scene": mujair_scene,           "bobot": 0.5},
 				{"scene": mas_scene,              "bobot": 0.5},
 			]
