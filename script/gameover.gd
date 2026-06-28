@@ -30,4 +30,4 @@ func _on_menu():
 	Global.album_koleksi.clear()
 	Global.sapu_sapu_ditangkap = 0
 	Global.sedang_game_over = false
-	get_tree().change_scene_to_file("res://scene/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scene/pilih_bioma.tscn")

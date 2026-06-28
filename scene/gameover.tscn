@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b2dkecxiutmma" path="res://script/gameover.gd" id="1_roxl8"]
 [ext_resource type="Texture2D" uid="uid://degx52ahwm2sd" path="res://asset/gameover.png" id="2_prwty"]
-[ext_resource type="Texture2D" uid="uid://cagmgoe63jyvm" path="res://asset/menu_button.png" id="3_88lim"]
-[ext_resource type="Texture2D" uid="uid://e0c4j4rw7b5t" path="res://asset/menu_button_hover.png" id="4_0vvtt"]
+[ext_resource type="Texture2D" uid="uid://b0v83qaighnb0" path="res://asset/button_pilih_bioma.png" id="3_prwty"]
+[ext_resource type="Texture2D" uid="uid://bhq3w6jniriud" path="res://asset/button_pilih_bioma_hover.png" id="4_88lim"]
 [ext_resource type="Texture2D" uid="uid://ds4yc7cywrrww" path="res://asset/button_ulangi.png" id="5_4q3rl"]
 [ext_resource type="Texture2D" uid="uid://di1nlfj1wno06" path="res://asset/button_ulangi_hover.png" id="6_85pid"]
 
@@ -35,11 +35,11 @@ color = Color(0, 0, 0, 0.11372549)
 
 [node name="CardImage" type="TextureRect" parent="." unique_id=455396711]
 layout_mode = 0
-offset_left = 216.05695
-offset_top = 82.96376
-offset_right = 1614.0569
-offset_bottom = 763.96375
-scale = Vector2(0.6524969, 0.6843976)
+offset_left = 158.77672
+offset_top = 77.96594
+offset_right = 1556.7767
+offset_bottom = 758.96594
+scale = Vector2(0.7121039, 0.6985105)
 texture = ExtResource("2_prwty")
 
 [node name="MenuButton" type="TextureButton" parent="CardImage" unique_id=1315545725]
@@ -48,9 +48,9 @@ offset_left = 727.2404
 offset_top = 497.70358
 offset_right = 995.2404
 offset_bottom = 579.7036
-texture_normal = ExtResource("3_88lim")
-texture_pressed = ExtResource("4_0vvtt")
-texture_hover = ExtResource("4_0vvtt")
+texture_normal = ExtResource("3_prwty")
+texture_pressed = ExtResource("4_88lim")
+texture_hover = ExtResource("4_88lim")
 
 [node name="UlangiButton" type="TextureButton" parent="CardImage" unique_id=520077428]
 layout_mode = 0

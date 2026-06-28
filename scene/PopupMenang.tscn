@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dqs3d7bslc8t4" path="res://script/PopupMenang.gd" id="1_y4fy4"]
 [ext_resource type="Texture2D" uid="uid://cyqe6eu1mmhlb" path="res://asset/menang.png" id="2_5gbyg"]
-[ext_resource type="Texture2D" uid="uid://cagmgoe63jyvm" path="res://asset/menu_button.png" id="3_ymquc"]
+[ext_resource type="Texture2D" uid="uid://b0v83qaighnb0" path="res://asset/button_pilih_bioma.png" id="3_y4fy4"]
+[ext_resource type="Texture2D" uid="uid://bhq3w6jniriud" path="res://asset/button_pilih_bioma_hover.png" id="4_5gbyg"]
 [ext_resource type="Texture2D" uid="uid://cqf5i20s3aevj" path="res://asset/lanjut_button.png" id="4_ew0gu"]
 
 [node name="PopupMenang" type="Control" unique_id=2089785684]
@@ -53,7 +54,9 @@ offset_top = 543.75867
 offset_right = 945.0908
 offset_bottom = 625.75867
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("3_ymquc")
+texture_normal = ExtResource("3_y4fy4")
+texture_pressed = ExtResource("4_5gbyg")
+texture_hover = ExtResource("4_5gbyg")
 
 [node name="LanjutButton" type="TextureButton" parent="CardImage" unique_id=750856510]
 layout_mode = 0
