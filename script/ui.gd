@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var hati5 = $Hati5
 @onready var album_button = $AlbumButton
 @onready var pause_button = $PauseButton   # ← BARU
+@onready var koleksi_ikan_button = $KoleksiIkan
 
 var album_scene = preload("res://scene/album.tscn")
 var pause_menu_scene = preload("res://scene/pause_menu.tscn")   # ← BARU
@@ -16,7 +17,8 @@ var pause_menu_scene = preload("res://scene/pause_menu.tscn")   # ← BARU
 func _ready():
 	add_to_group("ui_layer")
 	album_button.pressed.connect(_buka_album)
-	pause_button.pressed.connect(_buka_pause)   # ← BARU
+	pause_button.pressed.connect(_buka_pause)
+	koleksi_ikan_button.pressed.connect(_buka_album)   # ← BARU
 
 func _process(_delta):
 	point_label.text  = str(Global.poin)

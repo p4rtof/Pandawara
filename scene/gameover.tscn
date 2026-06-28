@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cs3w1x16iep8i"]
 
 [ext_resource type="Script" uid="uid://b2dkecxiutmma" path="res://script/gameover.gd" id="1_roxl8"]
+[ext_resource type="Texture2D" uid="uid://degx52ahwm2sd" path="res://asset/gameover.png" id="2_prwty"]
+[ext_resource type="Texture2D" uid="uid://cagmgoe63jyvm" path="res://asset/menu_button.png" id="3_88lim"]
+[ext_resource type="Texture2D" uid="uid://e0c4j4rw7b5t" path="res://asset/menu_button_hover.png" id="4_0vvtt"]
+[ext_resource type="Texture2D" uid="uid://ds4yc7cywrrww" path="res://asset/button_ulangi.png" id="5_4q3rl"]
+[ext_resource type="Texture2D" uid="uid://di1nlfj1wno06" path="res://asset/button_ulangi_hover.png" id="6_85pid"]
 
 [node name="GameOver" type="Control" unique_id=87753523]
 layout_mode = 3
@@ -12,39 +17,71 @@ grow_vertical = 2
 scale = Vector2(0.995108, 1.0004368)
 script = ExtResource("1_roxl8")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=148950937]
-custom_minimum_size = Vector2(1152, 648)
+[node name="DimBackground" type="ColorRect" parent="." unique_id=1565069845]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -730.0
+offset_top = -358.0
+offset_right = -690.0
+offset_bottom = -318.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.08627451)
+scale = Vector2(36.71516, 17.809484)
+color = Color(0, 0, 0, 0.11372549)
 
-[node name="Label" type="Label" parent="." unique_id=567677853]
+[node name="CardImage" type="TextureRect" parent="." unique_id=455396711]
 layout_mode = 0
-offset_left = 344.0
-offset_top = 181.0
-offset_right = 734.0
-offset_bottom = 280.0
-theme_override_font_sizes/font_size = 72
-text = "Game Over"
+offset_left = 216.05695
+offset_top = 82.96376
+offset_right = 1614.0569
+offset_bottom = 763.96375
+scale = Vector2(0.6524969, 0.6843976)
+texture = ExtResource("2_prwty")
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=1376574190]
+[node name="MenuButton" type="TextureButton" parent="CardImage" unique_id=1315545725]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 285.0
-offset_right = 630.0
-offset_bottom = 354.0
-theme_override_font_sizes/font_size = 50
-text = "Skor : 0"
+offset_left = 727.2404
+offset_top = 497.70358
+offset_right = 995.2404
+offset_bottom = 579.7036
+texture_normal = ExtResource("3_88lim")
+texture_pressed = ExtResource("4_0vvtt")
+texture_hover = ExtResource("4_0vvtt")
 
-[node name="RestartButton" type="Button" parent="." unique_id=204318105]
+[node name="UlangiButton" type="TextureButton" parent="CardImage" unique_id=520077428]
 layout_mode = 0
-offset_left = 441.0
-offset_top = 378.0
-offset_right = 643.0
-offset_bottom = 444.0
-theme_override_font_sizes/font_size = 42
-text = "Main Lagi"
+offset_left = 396.62308
+offset_top = 496.704
+offset_right = 662.62305
+offset_bottom = 577.704
+texture_normal = ExtResource("5_4q3rl")
+texture_pressed = ExtResource("6_85pid")
+texture_hover = ExtResource("6_85pid")
+
+[node name="ScoreLabel" type="Label" parent="CardImage" unique_id=1376574190]
+layout_mode = 0
+offset_left = 603.63586
+offset_top = 284.79654
+offset_right = 780.63586
+offset_bottom = 367.79654
+theme_override_colors/font_color = Color(0.3137255, 0.1882353, 0.07058824, 1)
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetLabel" type="Label" parent="CardImage" unique_id=1413008868]
+layout_mode = 0
+offset_left = 723.2209
+offset_top = 413.74026
+offset_right = 772.2209
+offset_bottom = 458.74026
+theme_override_colors/font_color = Color(0.3137255, 0.1882353, 0.07058824, 1)
+theme_override_font_sizes/font_size = 24
+text = "0/5"
+horizontal_alignment = 1
+vertical_alignment = 1

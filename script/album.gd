@@ -37,7 +37,7 @@ func _ready():
 	button_mujair.disabled = not _sudah_ditangkap("Mujair")
 	button_sapu2_albino.disabled = not _sudah_ditangkap("Sapu-sapu Albino")
 	button_mas.disabled = not _sudah_ditangkap("Mas")
-	button_sapu2_loreng.disabled = not _sudah_ditangkap("Sapu-sapu Zebra")
+	button_sapu2_loreng.disabled = not _sudah_ditangkap("Sapu-sapu Loreng")
 	button_lele.disabled = not _sudah_ditangkap("Lele")
 	button_buaya.disabled = not _sudah_ditangkap("Buaya")
 

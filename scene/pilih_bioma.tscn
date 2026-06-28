@@ -9,11 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://c4dkrf5n4jtj7" path="res://asset/card_tengah.png" id="6_v6ghj"]
 [ext_resource type="Texture2D" uid="uid://bsm2y6fsywq76" path="res://asset/button_tengah.png" id="7_f7hvp"]
 [ext_resource type="Texture2D" uid="uid://ceq551ntoshq5" path="res://asset/lock_tengah.png" id="7_v6ghj"]
+[ext_resource type="Texture2D" uid="uid://bbj4g3m2628fh" path="res://asset/button_hulu_hover.png" id="7_v601o"]
 [ext_resource type="Texture2D" uid="uid://cim5r10jwynqg" path="res://asset/card_kota.png" id="8_0d12n"]
 [ext_resource type="Texture2D" uid="uid://ci1qpgoo6tk00" path="res://asset/button_kota.png" id="9_538fs"]
 [ext_resource type="Texture2D" uid="uid://btrbx6ganle05" path="res://asset/lock_kota.png" id="11_f7hvp"]
+[ext_resource type="Texture2D" uid="uid://ch8o81vnmvn1p" path="res://asset/button_tengah_hover.png" id="11_vcoji"]
+[ext_resource type="Texture2D" uid="uid://huw82qypj1uh" path="res://asset/button_pilih_disable.png" id="12_v6ajp"]
 [ext_resource type="Texture2D" uid="uid://b23x4445iewb1" path="res://asset/koleksi_ikan.png" id="13_538fs"]
 [ext_resource type="Texture2D" uid="uid://n31rq6wa10xj" path="res://asset/koleksi_ikan_hover.png" id="14_5fri2"]
+[ext_resource type="Texture2D" uid="uid://b85pnuk3gvpya" path="res://asset/button_kota_hover.png" id="16_vcoji"]
 
 [node name="PilihBioma" type="Control" unique_id=203102772]
 layout_mode = 3
@@ -90,6 +94,8 @@ offset_top = 457.0437
 offset_right = 446.33875
 offset_bottom = 1006.0437
 texture_normal = ExtResource("5_s01fg")
+texture_pressed = ExtResource("7_v601o")
+texture_hover = ExtResource("7_v601o")
 
 [node name="KartuPertengahan" type="PanelContainer" parent="HBoxContainer" unique_id=1223791570]
 layout_mode = 2
@@ -123,6 +129,9 @@ offset_top = 460.00192
 offset_right = 446.37238
 offset_bottom = 1009.00195
 texture_normal = ExtResource("7_f7hvp")
+texture_pressed = ExtResource("11_vcoji")
+texture_hover = ExtResource("11_vcoji")
+texture_disabled = ExtResource("12_v6ajp")
 
 [node name="KartuPerkotaan" type="PanelContainer" parent="HBoxContainer" unique_id=75179017]
 layout_mode = 2
@@ -156,6 +165,9 @@ offset_top = 458.5228
 offset_right = 444.74622
 offset_bottom = 1007.5228
 texture_normal = ExtResource("9_538fs")
+texture_pressed = ExtResource("16_vcoji")
+texture_hover = ExtResource("16_vcoji")
+texture_disabled = ExtResource("12_v6ajp")
 
 [node name="KoleksiIkan" type="TextureButton" parent="." unique_id=588897133]
 layout_mode = 0

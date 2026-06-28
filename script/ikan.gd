@@ -104,9 +104,18 @@ func _on_area_entered(_area: Area2D) -> void:
 				print("❌ %s mengurangi %d hati | Nyawa: %d" % [nama_ikan, kurang, Global.nyawa])
 			if Global.nyawa <= 0 and not Global.sedang_game_over:
 				Global.sedang_game_over = true
-				get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
+				call_deferred("_tampilkan_gameover")
 				return
 		call_deferred("queue_free")
+
+
+func _tampilkan_gameover():
+	var ui = get_tree().get_first_node_in_group("ui_layer")
+	if ui == null:
+		ui = get_tree().current_scene
+	var gameover_scene = load("res://scene/gameover.tscn")
+	var gameover = gameover_scene.instantiate()
+	ui.add_child(gameover)
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:

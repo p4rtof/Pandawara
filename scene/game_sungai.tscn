@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://di76uorfuodua" path="res://asset/pause.png" id="7_35kdq"]
 [ext_resource type="PackedScene" uid="uid://c5oevcrss36wb" path="res://scene/lele.tscn" id="7_tnv0f"]
 [ext_resource type="PackedScene" uid="uid://b2l8s3dlbsdpj" path="res://scene/buaya.tscn" id="8_orjo5"]
+[ext_resource type="Texture2D" uid="uid://c2ugcjyipbsos" path="res://asset/koleksi_ikan_game.png" id="14_orjo5"]
+[ext_resource type="Texture2D" uid="uid://bchrw4ohwndpn" path="res://asset/koleksi_ikan_game_hover.png" id="15_y14th"]
 
 [node name="game_sungai" type="Node2D" unique_id=1041822859]
 scale = Vector2(1, 1.0252032)
@@ -120,5 +122,14 @@ offset_right = 185.0
 offset_bottom = 150.0
 scale = Vector2(0.5363736, 0.5461687)
 texture_normal = ExtResource("7_35kdq")
+
+[node name="KoleksiIkan" type="TextureButton" parent="UI" unique_id=1998449443]
+offset_left = 472.0
+offset_top = 18.0
+offset_right = 542.0
+offset_bottom = 88.0
+texture_normal = ExtResource("14_orjo5")
+texture_pressed = ExtResource("15_y14th")
+texture_hover = ExtResource("15_y14th")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
