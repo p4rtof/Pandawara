@@ -9,7 +9,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	skor_label.text = str(Global.poin)
 	target_label.text = "%d/%d" % [Global.sapu_sapu_ditangkap, Global.target_sapu_sapu]
-
+	Global.buka_bioma_berikutnya()
 	lanjut_button.pressed.connect(_on_lanjut)
 	menu_button.pressed.connect(_on_menu)
 
