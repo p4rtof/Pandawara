@@ -14,10 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://ci1qpgoo6tk00" path="res://asset/button_kota.png" id="9_538fs"]
 [ext_resource type="Texture2D" uid="uid://btrbx6ganle05" path="res://asset/lock_kota.png" id="11_f7hvp"]
 [ext_resource type="Texture2D" uid="uid://ch8o81vnmvn1p" path="res://asset/button_tengah_hover.png" id="11_vcoji"]
-[ext_resource type="Texture2D" uid="uid://huw82qypj1uh" path="res://asset/button_pilih_disable.png" id="12_v6ajp"]
+[ext_resource type="Texture2D" uid="uid://cg3r6boxl1naw" path="res://asset/button_tengah_disable.png" id="12_t5wlx"]
 [ext_resource type="Texture2D" uid="uid://b23x4445iewb1" path="res://asset/koleksi_ikan.png" id="13_538fs"]
 [ext_resource type="Texture2D" uid="uid://n31rq6wa10xj" path="res://asset/koleksi_ikan_hover.png" id="14_5fri2"]
 [ext_resource type="Texture2D" uid="uid://b85pnuk3gvpya" path="res://asset/button_kota_hover.png" id="16_vcoji"]
+[ext_resource type="Texture2D" uid="uid://blsdqffmjfxj0" path="res://asset/button_kota_disable.png" id="17_v6ajp"]
 
 [node name="PilihBioma" type="Control" unique_id=203102772]
 layout_mode = 3
@@ -79,15 +80,12 @@ scale = Vector2(0.66708106, 0.7261711)
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="KartuHulu" type="PanelContainer" parent="HBoxContainer" unique_id=1163784724]
-layout_mode = 2
-
-[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuHulu" unique_id=1984442175]
+[node name="CardHulu" type="TextureRect" parent="HBoxContainer" unique_id=1984442175]
 visibility_layer = 2
 layout_mode = 2
 texture = ExtResource("4_5r1p3")
 
-[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuHulu/GambarCard" unique_id=939597119]
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/CardHulu" unique_id=939597119]
 layout_mode = 0
 offset_left = 81.33873
 offset_top = 457.0437
@@ -97,23 +95,20 @@ texture_normal = ExtResource("5_s01fg")
 texture_pressed = ExtResource("7_v601o")
 texture_hover = ExtResource("7_v601o")
 
-[node name="KartuPertengahan" type="PanelContainer" parent="HBoxContainer" unique_id=1223791570]
-layout_mode = 2
-
-[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuPertengahan" unique_id=206346228]
+[node name="CardTengah" type="TextureRect" parent="HBoxContainer" unique_id=206346228]
 layout_mode = 2
 texture = ExtResource("6_v6ghj")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/KartuPertengahan/GambarCard" unique_id=2098766722]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/CardTengah" unique_id=2098766722]
 layout_mode = 0
-offset_left = 13.313473
-offset_top = 66.55976
-offset_right = 378.31348
-offset_bottom = 615.55975
+offset_left = 14.8725395
+offset_top = 66.10013
+offset_right = 379.87253
+offset_bottom = 615.1001
 scale = Vector2(0.91605663, 0.4260115)
 color = Color(0, 0, 0, 0.3882353)
 
-[node name="Lock" type="TextureRect" parent="HBoxContainer/KartuPertengahan/GambarCard/ColorRect" unique_id=304145320]
+[node name="Lock" type="TextureRect" parent="HBoxContainer/CardTengah/ColorRect" unique_id=304145320]
 layout_mode = 0
 offset_left = 122.95152
 offset_top = 154.90573
@@ -122,7 +117,7 @@ offset_bottom = 280.90573
 scale = Vector2(1.0445985, 1.7692342)
 texture = ExtResource("7_v6ghj")
 
-[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuPertengahan/GambarCard" unique_id=761189116]
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/CardTengah" unique_id=761189116]
 layout_mode = 0
 offset_left = 81.372375
 offset_top = 460.00192
@@ -131,25 +126,22 @@ offset_bottom = 1009.00195
 texture_normal = ExtResource("7_f7hvp")
 texture_pressed = ExtResource("11_vcoji")
 texture_hover = ExtResource("11_vcoji")
-texture_disabled = ExtResource("12_v6ajp")
+texture_disabled = ExtResource("12_t5wlx")
 
-[node name="KartuPerkotaan" type="PanelContainer" parent="HBoxContainer" unique_id=75179017]
-layout_mode = 2
-
-[node name="GambarCard" type="TextureRect" parent="HBoxContainer/KartuPerkotaan" unique_id=865151498]
+[node name="CardKota" type="TextureRect" parent="HBoxContainer" unique_id=865151498]
 layout_mode = 2
 texture = ExtResource("8_0d12n")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/KartuPerkotaan/GambarCard" unique_id=1032774407]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/CardKota" unique_id=1032774407]
 layout_mode = 0
-offset_left = 16.667114
-offset_top = 66.55975
-offset_right = 381.6671
-offset_bottom = 615.55975
-scale = Vector2(0.91175085, 0.42463723)
+offset_left = 14.695857
+offset_top = 67.47721
+offset_right = 379.69586
+offset_bottom = 616.47723
+scale = Vector2(0.91762716, 0.42463723)
 color = Color(0, 0, 0, 0.3882353)
 
-[node name="Lock" type="TextureRect" parent="HBoxContainer/KartuPerkotaan/GambarCard/ColorRect" unique_id=1669812642]
+[node name="Lock" type="TextureRect" parent="HBoxContainer/CardKota/ColorRect" unique_id=1669812642]
 layout_mode = 0
 offset_left = 121.143364
 offset_top = 168.67525
@@ -158,7 +150,7 @@ offset_bottom = 294.67526
 scale = Vector2(1.0445985, 1.7692342)
 texture = ExtResource("11_f7hvp")
 
-[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/KartuPerkotaan/GambarCard" unique_id=1525539513]
+[node name="ButtonLanjut" type="TextureButton" parent="HBoxContainer/CardKota" unique_id=1525539513]
 layout_mode = 0
 offset_left = 79.746216
 offset_top = 458.5228
@@ -167,7 +159,7 @@ offset_bottom = 1007.5228
 texture_normal = ExtResource("9_538fs")
 texture_pressed = ExtResource("16_vcoji")
 texture_hover = ExtResource("16_vcoji")
-texture_disabled = ExtResource("12_v6ajp")
+texture_disabled = ExtResource("17_v6ajp")
 
 [node name="KoleksiIkan" type="TextureButton" parent="." unique_id=588897133]
 layout_mode = 0
