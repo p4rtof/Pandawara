@@ -75,9 +75,9 @@ texture_normal = ExtResource("3_887d1")
 
 [node name="PreeSpace2" type="TextureRect" parent="." unique_id=1119438623]
 layout_mode = 0
-offset_left = 477.99997
-offset_top = 596.0
-offset_right = 1791.0
-offset_bottom = 696.0
-scale = Vector2(0.17673157, 0.2736865)
+offset_left = 17.0
+offset_top = 600.0
+offset_right = 1330.0
+offset_bottom = 700.0
+scale = Vector2(0.22177409, 0.26332998)
 texture = ExtResource("4_hwqpc")

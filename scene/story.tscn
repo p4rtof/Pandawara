@@ -28,9 +28,9 @@ stretch_mode = 6
 
 [node name="PreeSpace" type="TextureRect" parent="." unique_id=2226956]
 layout_mode = 1
-offset_left = 477.99997
-offset_top = 596.0
-offset_right = 1791.0
-offset_bottom = 696.0
-scale = Vector2(0.17673157, 0.2736865)
+offset_left = 19.0
+offset_top = 610.0
+offset_right = 1332.0
+offset_bottom = 710.0
+scale = Vector2(0.2102154, 0.26048335)
 texture = ExtResource("3_ohpsw")

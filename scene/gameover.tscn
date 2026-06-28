@@ -35,10 +35,10 @@ color = Color(0, 0, 0, 0.11372549)
 
 [node name="CardImage" type="TextureRect" parent="." unique_id=455396711]
 layout_mode = 0
-offset_left = 158.77672
-offset_top = 77.96594
-offset_right = 1556.7767
-offset_bottom = 758.96594
+offset_left = 163.8013
+offset_top = 106.95328
+offset_right = 1561.8013
+offset_bottom = 787.95325
 scale = Vector2(0.7121039, 0.6985105)
 texture = ExtResource("2_prwty")
 

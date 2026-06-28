@@ -24,4 +24,4 @@ func _on_lanjut():
 func _on_menu():
 	get_tree().paused = false
 	MusicManager.kembalikan_musik()
-	get_tree().change_scene_to_file("res://scene/mainmenu.tscn")
+	get_tree().change_scene_to_file("res://scene/pilih_bioma.tscn")

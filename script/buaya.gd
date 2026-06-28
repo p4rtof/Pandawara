@@ -64,7 +64,16 @@ func _serang_pemain():
 
 	if Global.nyawa <= 0 and not Global.sedang_game_over:
 		Global.sedang_game_over = true
-		get_tree().call_deferred("change_scene_to_file", "res://scene/gameover.tscn")
+		call_deferred("_tampilkan_gameover")
+
+
+func _tampilkan_gameover():
+	var ui = get_tree().get_first_node_in_group("ui_layer")
+	if ui == null:
+		ui = get_tree().current_scene
+	var gameover_scene = load("res://scene/gameover.tscn")
+	var gameover = gameover_scene.instantiate()
+	ui.add_child(gameover)
 
 func _cek_dan_tambah_album(data: Dictionary) -> bool:
 	for item in Global.album_koleksi:
