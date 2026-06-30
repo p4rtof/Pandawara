@@ -6,8 +6,8 @@ var album_per_bioma: Array = [[], [], []]
 var bioma_dipilih = 0
 var poin_per_bioma = [0, 0, 0]
 var sapu_sapu_ditangkap: int = 0
-var target_sapu_sapu_per_bioma: Array = [5, 5, 5]
-var target_sapu_sapu: int = 5
+var target_sapu_sapu_per_bioma: Array = [10,15,20]
+var target_sapu_sapu: int = 10
 var sedang_game_over: bool = false
 var bioma_terbuka: int = 0
 enum StoryTujuan { PILIH_BIOMA, MAIN_BIOMA, GAME_SELESAI }

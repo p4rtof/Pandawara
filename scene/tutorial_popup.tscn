@@ -28,10 +28,10 @@ expand_mode = 1
 
 [node name="TutupButton" type="TextureButton" parent="." unique_id=1003717895]
 layout_mode = 0
-offset_left = 526.2656
-offset_top = 311.04266
-offset_right = 823.2657
-offset_bottom = 402.04266
+offset_left = 527.8104
+offset_top = 309.4796
+offset_right = 824.81055
+offset_bottom = 400.4796
 scale = Vector2(0.38142008, 0.4600365)
 texture_normal = ExtResource("3_431ay")
 texture_hover = ExtResource("4_q7h6k")
